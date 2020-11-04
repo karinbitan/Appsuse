@@ -2,6 +2,7 @@
     list-style-type: none;
     border-bottom: 1px solid black;
     cursor: pointer;
+    margin: 0;
 }
 
 .mail-preview ul .unread {

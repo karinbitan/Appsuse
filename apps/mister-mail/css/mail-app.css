@@ -1,7 +1,4 @@
 @import './mail-preview.css';
 @import './mail-list.css';
 @import './side-nav.css';
-
-.mail-app {
-    display: flex;
-}
+@import './mail-compose.css';

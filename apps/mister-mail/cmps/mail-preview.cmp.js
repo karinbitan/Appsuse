@@ -4,13 +4,11 @@ export default {
     props: ['mail'],
     template: `
     <section class="mail-preview">
-    <ul class="flex space-between" :class="unRead">
+    <ul class="flex space-between" :class="unRead" @click="bookDetails('/mail/' +mail.id)">
         <li>Karin</li>
         <li>{{mail.subject}}</li>
         <li class="previewText">{{mailText}}</li>
         <li>{{mail.sentAt}}</li>
-        <router-link :to="'/mail/' +mail.id" exact>Select</router-link>
-        <!-- <router-view></router-view> -->
     </ul>
     </section>
     `,
@@ -29,5 +27,10 @@ export default {
               return mail.substring(0, 20) + '...';
             } else return mail;
           },
+    },
+    methods: {
+        bookDetails(mailId){
+            this.$router.push(`${mailId}`)
+        }
     }
 }

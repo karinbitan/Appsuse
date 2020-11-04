@@ -8,7 +8,6 @@ const options = {
     template: `
     <section>
         <main-header class="main-header"></main-header>
-        <h1>Puki</h1>
         <main>
             <router-view></router-view>
         </main>

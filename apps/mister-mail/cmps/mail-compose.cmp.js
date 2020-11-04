@@ -1,4 +1,35 @@
+import { mailService } from './../services/mail-service.js';
+import {eventBus} from './../../../services/event-bus-service.js';
 
 export default {
-    
+    template: `
+    <section>
+        <form @submit.prevent="onAddMail" class="new-message">
+            <h2 class="new-message-header">New message</h2>
+            <div class="new-message-text flex-column">
+                    <input type="text" placeholder="To" />
+                    <input type="text" placeholder="Subject" v-model="mail.subject" />
+                    <textarea class="mail-body" v-model="mail.body"></textarea>
+                </div>
+                <button>Send</button>
+        </form>
+    </section>
+    `,
+    data() {
+        return {
+            mail: {
+                subject: '',
+                body: ''
+            }
+        }
+    },
+    methods: {
+        onAddMail() {
+            var subject = this.mail.subject;
+            var body = this.mail.body;
+            mailService.addMail(subject, body);
+            eventBus.$emit('mail-added');
+            this.$router.push('/mail')
+        }
+    }
 }

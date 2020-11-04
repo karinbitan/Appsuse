@@ -1,4 +1,4 @@
-import {eventBus} from './../../../services/event-bus-service.js';
+import { eventBus } from './../../../services/event-bus-service.js';
 import { mailService } from './../services/mail-service.js';
 
 export default {
@@ -23,9 +23,8 @@ export default {
     methods: {
         onRemoveMail(mailId) {
             mailService.removeMail(mailId);
-            console.log(mailId)
             eventBus.$emit('mail-deleted');
             this.$router.push('/mail')
-        }
+        },
     }
 }

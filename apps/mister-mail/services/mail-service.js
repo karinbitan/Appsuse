@@ -8,7 +8,8 @@ export const mailService = {
     createMails,
     getMails,
     getMailById,
-    removeMail
+    removeMail,
+    addMail
 }
 
 
@@ -54,5 +55,12 @@ function removeMail(mailId) {
     mails = mails.filter((mail) => {
         return mail.id !== mailId;
     })
+    utilService.storeToStorage(STORAGE_KEY, mails);
+}
+
+function addMail(subject, body){
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    var mail = createMail(subject, body)
+    mails.unshift(mail);
     utilService.storeToStorage(STORAGE_KEY, mails);
 }

@@ -23,6 +23,7 @@ export default {
 
     created() {
         this.note = keepService.createNote();
+        console.log('updated');
     },
 
     components: {

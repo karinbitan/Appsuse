@@ -5,10 +5,12 @@ export default {
     props: ['mails'],
     template: `
     <section class="mail-list">
-        <ul>
-    <li v-for="mail in mails"><mail-preview/>{{mail}}</li>
-        </ul>
+        <div v-for="mail in mails">
+            <mail-preview :mail="mail" />
+        </div>
     </section>
     `,
-    components: mailPreview,
+    components: {
+        mailPreview,
+    }
 }

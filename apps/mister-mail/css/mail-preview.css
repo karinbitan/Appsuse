@@ -1,0 +1,9 @@
+.mail-preview ul {
+    list-style-type: none;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.mail-preview ul .unread {
+    font-weight: bold;
+}

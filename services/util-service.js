@@ -1,7 +1,8 @@
 export const utilService = {
     storeToStorage,
     loadFromStorage,
-    makeId
+    makeId,
+    getTime
 }
 
 function storeToStorage(key, value) {
@@ -20,4 +21,13 @@ function makeId(length = 5) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return txt;
+}
+
+function getTime(){
+    var time = new Date();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    hours = (hours < 10) ? '0' + hours : hours;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    return hours + ':' + minutes;
 }

@@ -13,11 +13,11 @@ const routes = [
         component: keepApp
     },
     {
-        path: 'mail',
+        path: '/mail',
         component: mailApp,
     },
     {
-        path: 'book',
+        path: '/book',
         component: bookApp
     }
 

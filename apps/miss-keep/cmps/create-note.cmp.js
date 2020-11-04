@@ -3,6 +3,8 @@ export default {
     <section class="create-note">
         <input type="text" name="title" placeholder="Title" v-model="title" @blur="reportVal">
         <textarea name="txt" cols="50" placeholder="Take a note..." v-model="txt" @blur="reportVal"></textarea>
+        <!-- Instead of textarea above, should be an option to select the note type -->
+        <!-- See: "Notes Variations" in the PDF -->
     </section>
     `,
 
@@ -10,8 +12,8 @@ export default {
 
     data() {
         return {
-            title: this.note.info.title,
-            txt: this.note.info.txt 
+            title: this.note ? this.note.info.title : '',
+            txt: this.note ? this.note.info.txt : ''
         }
     },
     

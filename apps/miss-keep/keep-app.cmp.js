@@ -7,7 +7,6 @@ export default {
     <section v-if="note" class="keep-app">
         <component :is="note.type"  @sendInfo="saveInfo"></component>
         <button @click="saveNote">Add Note</button>
-        <div v-for="note in noteList"></div>
     </section>
     `,
 

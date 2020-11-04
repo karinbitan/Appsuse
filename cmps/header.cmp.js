@@ -7,7 +7,9 @@ export default {
         </div>
         <nav class="flex align-center space-between">
             <router-link to="/mail" exact>Mail</router-link>
+            <a class="seperator">|</a>
             <router-link to="/keep" exact>Keep</router-link>
+            <a class="seperator">|</a>
             <router-link to="/book" exact>Books</router-link>
         </nav>
     </header>

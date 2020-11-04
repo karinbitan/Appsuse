@@ -23,11 +23,21 @@
     border-bottom: 2px solid #F6F4D2;
 }
 
-.main-header a:not(:last-child) {
-    margin-inline-end: 0.75rem;
+.main-header a:active {
+    font-weight: 900;
 }
 
+.main-header a.seperator {
+    margin: 0 0.75rem;
+    border-bottom: none;
+    
+}
+
+/* .main-header a:not(:last-child) {
+    margin-inline-end: 0.75rem;
+} */
+/* 
 .main-header a:not(:last-child)::after {
     content: '|';
     margin-inline-start: 0.75rem;
-}
+} */

@@ -7,12 +7,12 @@ const options = {
     router: ourRouter,
     template: `
     <section>
-        <main-header></main-header>
+        <main-header class="main-header"></main-header>
         <h1>Puki</h1>
         <main>
             <router-view></router-view>
         </main>
-        <main-footer></main-footer>
+        <main-footer class="main-footer"></main-footer>
     </section> 
     `,
     components: {

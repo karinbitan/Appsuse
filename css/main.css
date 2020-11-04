@@ -1,0 +1,13 @@
+@import './header.css';
+@import './footer.css';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}

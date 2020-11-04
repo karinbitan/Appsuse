@@ -1,0 +1,33 @@
+@import "./cmps-style/create-note.cmp.css";
+@import "./cmps-style/note-txt.cmp.css";
+
+.keep-app {
+    background-color: #F6F4D2;
+    min-height: 80vh;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.keep-app button {
+    background-color: #F19C79;
+    color: #582720;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.75rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #582720;
+    border-radius: 0.5rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.keep-app button:hover {
+    background-color: #F6F4D2;
+}
+
+.keep-app button:active {
+    transform: translateY(3px);
+}
+
+.keep-app button:focus {
+    outline: 2px solid #DEBE9B;
+}

@@ -1,0 +1,28 @@
+
+.create-note {
+    padding: 2rem;
+    margin: 1.5rem;
+}
+
+.create-note input {
+    width: 45vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid #DEBE9B;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.create-note input:focus, textarea:focus {
+    outline: 2px solid #A44A3F;
+}
+
+textarea {
+    width: 45vw;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    border: 1px solid #DEBE9B;
+    border-radius: 0.5rem;
+}

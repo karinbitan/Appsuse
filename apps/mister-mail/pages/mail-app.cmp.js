@@ -1,11 +1,11 @@
-import { mailService } from './../apps/mister-mail/services/mail-service.js';
-import mailList from './../apps/mister-mail/cmps/mail-list.cmp.js';
+import { mailService } from './../services/mail-service.js';
+import mailList from './../cmps/mail-list.cmp.js';
 
 export default {
     template: `
     <section class="mail-app">
         <h1>Mails!</h1>
-        <mail-list :mails="getMails"></mail-list>
+        <mail-list :mails="mailsToShow"></mail-list>
     </section>
     `,
     components: {
@@ -19,11 +19,13 @@ export default {
     computed: {
         mailsToShow(){
             return this.mails;
+
         }
     },
     created(){
         mailService.getMails().then( mails =>{
-            this.mails = mails
+            this.mails = mails;
+            console.log(this.mails)
         } )
     }
 }

@@ -1,6 +1,6 @@
 import homePage from './pages/home-page.cmp.js';
 import keepApp from './pages/keep-app.cmp.js';
-import mailApp from './pages/mail-app.cmp.js';
+import mailApp from './apps/mister-mail/pages/mail-app.cmp.js';
 import bookApp from './pages/book-app.cmp.js';
 
 const routes = [

@@ -9,16 +9,14 @@ export default {
 
     data() {
         return {
-            txtNoteInfo: {
                 title: '',
-                txt: ''
-            }
+                txt: '' 
         }
     },
     
     methods: {
         reportVal() {
-            this.$emit(this.title, this.txt)
+            this.$emit('sendInfo', this.title, this.txt);
         }
     }
 }

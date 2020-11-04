@@ -1,31 +1,39 @@
 import { mailService } from './../services/mail-service.js';
+import { eventBus } from './../../../services/event-bus-service.js';
 import mailList from './../cmps/mail-list.cmp.js';
+import sideNav from './../cmps/side-nav.cmp.js';
 
 export default {
     template: `
     <section class="mail-app">
-        <h1>Mails!</h1>
+        <side-nav></side-nav>
         <mail-list :mails="mailsToShow"></mail-list>
     </section>
     `,
     components: {
         mailList,
+        sideNav
     },
-    data(){
+    data() {
         return {
             mails: [],
         }
     },
     computed: {
-        mailsToShow(){
+        mailsToShow() {
             return this.mails;
 
         }
     },
-    created(){
-        mailService.getMails().then( mails =>{
+    created() {
+        mailService.getMails().then(mails => {
             this.mails = mails;
-            console.log(this.mails)
-        } )
+        })
+        eventBus.$on('mail-deleted', () => {
+            mailService.getMails().then(mails => {
+                this.mails = mails;
+                console.log('deleted')
+            })
+        })
     }
 }

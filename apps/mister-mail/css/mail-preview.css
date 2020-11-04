@@ -7,3 +7,7 @@
 .mail-preview ul .unread {
     font-weight: bold;
 }
+
+.mail-preview ul .previewText{
+    color: gray;
+}

@@ -1,0 +1,12 @@
+.side-nav {
+    width: 300px;
+}
+
+.side-nav ul {
+    list-style-type: none;
+    height: 300px;
+}
+
+.side-nav ul li{
+    cursor: pointer;
+}

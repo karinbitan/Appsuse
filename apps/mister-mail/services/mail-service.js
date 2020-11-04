@@ -6,7 +6,9 @@ import { utilService } from './../../../services/util-service.js'
 export const mailService = {
     createMail,
     createMails,
-    getMails
+    getMails,
+    getMailById,
+    removeMail
 }
 
 
@@ -22,21 +24,35 @@ function createMail(subject, body) {
 }
 
 function createMails() {
-    // var mails = utilService.loadFromStorage(STORAGE_KEY);
-    var mails = []
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+
+    if (!mails || !mails.length) {
+        mails = [];
+        mails.push(createMail('Wassap?', 'Wanna eat pizza?'));
+        mails.push(createMail('Sap?', 'Wanna eat vegan burger?'));
+        mails.push(createMail('Hey!', 'Wanna build websites?'));
+    }
+    utilService.storeToStorage(STORAGE_KEY, mails);
     console.log(mails)
-    mails.push(createMail('Wassap?', 'Wanna eat pizza?'));
-    mails.push(createMail('Sap?', 'Wanna eat vegan burger?'));
-    mails.push(createMail('Hey!', 'Wanna build websites?'));
-    // if (!mails) {
-    //     var mail = createMail('Wassap?', 'Wanna eat pizza?');
-    //     mails.push(mail);
-    //     utilService.storeToStorage(STORAGE_KEY, mails);
-    // }
     return mails;
 }
 
 function getMails() {
-    return Promise.resolve(gMails);
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    return Promise.resolve(mails);
 }
-// {subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt : 1551133930594}
+
+function getMailById(mailId) {
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    return Promise.resolve(mails.find((mail) => {
+        return mail.id === mailId;
+    }))
+}
+
+function removeMail(mailId) {
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    mails = mails.filter((mail) => {
+        return mail.id !== mailId;
+    })
+    utilService.storeToStorage(STORAGE_KEY, mails);
+}

@@ -1,10 +1,8 @@
 export default {
     template: `
-    <section class="create-note">
-        <input type="text" name="title" placeholder="Title" v-model="title" @blur="reportVal">
+    <section class="create-note flex-column align-center">
+        <input type="text" name="title" placeholder="Add Title" v-model="title" @blur="reportVal">
         <textarea name="txt" cols="50" placeholder="Take a note..." v-model="txt" @blur="reportVal"></textarea>
-        <!-- Instead of textarea above, should be an option to select the note type -->
-        <!-- See: "Notes Variations" in the PDF -->
     </section>
     `,
 

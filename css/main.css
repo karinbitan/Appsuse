@@ -1,6 +1,8 @@
 @import './../apps/mister-mail/css/mail-app.css';
+@import '../apps/miss-keep/css/keep-app.css';
 @import './header.css';
 @import './footer.css';
+
 * {
     box-sizing: border-box;
 }
@@ -11,6 +13,10 @@ html {
 
 body {
     margin: 0;
+}
+
+main {
+    min-height: 70vh;
 }
 
 h1 {

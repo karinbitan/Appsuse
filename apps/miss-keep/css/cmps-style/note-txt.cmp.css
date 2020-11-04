@@ -1,0 +1,33 @@
+.txt-note {
+    background-color: #CBDFBD;
+    max-width: 45vw;
+    border: 2px solid #4A5922;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.txt-note input {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 2rem;
+    color: #4A5922;
+    font-weight: 700;
+    text-align: center;
+}
+
+.txt-note input:hover, .txt-note input:focus {
+    border-bottom: 2px solid #4A5922;
+}
+
+.txt-note textarea {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 1.6rem;
+    max-width: 40vw;
+}
+
+.txt-note textarea:hover {
+    outline: 2px solid #A44A3F;
+}

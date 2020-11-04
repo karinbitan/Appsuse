@@ -20,7 +20,7 @@ function createNote() {
 }
 
 function addToNotes(newNote) {
-    notes.push(newNote);
+    notes.unshift(newNote);
 }
 
 function getNotes() {

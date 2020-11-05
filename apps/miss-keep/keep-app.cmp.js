@@ -1,8 +1,9 @@
 
 import {keepService} from './services/keep-service.js';
+import createNote from './cmps/create-note.cmp.js';
 import noteTxt from './cmps/note-txt.cmp.js';
 import noteImg from './cmps/note-img.cmp.js';
-import createNote from './cmps/create-note.cmp.js';
+import noteVideo from './cmps/note-video.cmp.js';
 
 export default {
     template: `
@@ -30,9 +31,9 @@ export default {
                 this.note = {info: {}}
             }
 
-            this.note.type = 'note-img';
             this.note.info.title = title;
             this.note.info.txt = txt;
+            // this.note.type = type;
         },
 
         saveNote() {
@@ -43,6 +44,7 @@ export default {
 
         createNewNote(noteType) {
             this.note = keepService.createNote(noteType);
+            console.log(this.note)
         }
     },
 
@@ -56,6 +58,7 @@ export default {
     components: {
         createNote,
         noteTxt,
-        noteImg
+        noteImg,
+        noteVideo
     }
 }

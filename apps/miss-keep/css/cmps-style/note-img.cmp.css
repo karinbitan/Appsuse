@@ -1,26 +1,26 @@
-.img-note {
+.note-img {
     background-color: #f7cbb9;
     max-width: 45vw;
-    border: 2px solid #A44A3F;
+    border: 2px solid #582720;
     border-radius: 0.5rem;
     margin: 1rem;
 }
 
-.img-note input {
+.note-img input {
     background-color: transparent;
     border: transparent;
     margin: 1rem;
     font-size: 2rem;
-    color: #A44A3F;
+    color: #582720;
     font-weight: 700;
     text-align: center;
 }
 
-.img-note input:hover, .img-note input:focus {
-    border-bottom: 2px solid #A44A3F;
+.note-img input:hover, .note-img input:focus {
+    border-bottom: 2px solid #582720;
 }
 
-.img-note img {
+.note-img img {
     max-width: 40vw;
     max-height: 45vh;
     object-fit: cover;

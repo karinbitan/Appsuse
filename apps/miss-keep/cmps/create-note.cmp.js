@@ -4,10 +4,16 @@ export default {
         <input type="text" name="title" placeholder="Add Title" v-model="title" @blur="reportVal">
         <textarea name="txt" cols="50" v-model="txt" @blur="reportVal"></textarea>
         <label for="choose-txt">txt
-            <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType">
+            <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true">
         </label>
         <label for="choose-img">img
             <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType">
+        </label>
+        <label for="choose-todo">todo
+            <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType">
+        </label>
+        <label for="choose-video">video
+            <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType">
         </label>
     </section>
     `,
@@ -17,7 +23,7 @@ export default {
     data() {
         return {
             title: this.note ? this.note.info.title : '',
-            txt: this.note ? this.note.info.txt : ''
+            txt: this.note ? this.note.info.txt : '',
         }
     },
     
@@ -42,6 +48,12 @@ export default {
                     break;
                 case 'img':
                     placeholderTxt = 'Enter image URL'
+                    break;
+                case 'video':
+                    placeholderTxt = 'Enter video URL'
+                    break;
+                case 'todo':
+                    placeholderTxt = 'Write your to do list, seperated with ","'
                     break;
                 default:
                     placeholderTxt = 'Take a note...'

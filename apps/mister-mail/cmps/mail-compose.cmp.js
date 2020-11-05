@@ -11,7 +11,8 @@ export default {
                     <input type="text" placeholder="Subject" v-model="mail.subject" />
                     <textarea class="mail-body" v-model="mail.body"></textarea>
                 </div>
-                <button>Send</button>
+                <button class="delete-draft">Send</button>
+                <button class="send-mail"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
         </form>
     </section>
     `,

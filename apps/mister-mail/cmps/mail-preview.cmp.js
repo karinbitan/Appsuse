@@ -9,7 +9,7 @@ export default {
     <ul class="flex space-between" :class="readUnRead" @click="markReadUnRead">
         <li>Karin</li>
         <li>{{mail.subject}}</li>
-        <li class="previewText">{{mailText}}</li>
+        <li class="grey">{{mailText}}</li>
         <li>{{mail.sentAt}}</li>
     </ul>
     </section>

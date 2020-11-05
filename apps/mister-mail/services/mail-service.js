@@ -19,6 +19,8 @@ function createMail(subject, body) {
         id: utilService.makeId(),
         subject,
         body,
+        from: 'Karin',
+        to: 'Karin',
         isRead: false,
         sentAt: utilService.getTime()
     }
@@ -35,7 +37,6 @@ function createMails() {
         mails.push(createMail('Hey!', 'Wanna build websites?'));
     }
     utilService.storeToStorage(STORAGE_KEY, mails);
-    console.log(mails)
     return mails;
 }
 

@@ -1,0 +1,7 @@
+.user-msg{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background-color:lightgray;
+    padding: 10px;
+}

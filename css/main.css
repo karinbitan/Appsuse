@@ -2,6 +2,7 @@
 @import '../apps/miss-keep/css/keep-app.css';
 @import './header.css';
 @import './footer.css';
+@import './user-msg.css';
 
 * {
     box-sizing: border-box;

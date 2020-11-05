@@ -1,0 +1,17 @@
+.mail-details{
+    border: 1px solid #A44A3F;
+    width: 50%;
+}
+
+.mail-details .subject{
+    display: inline;
+}
+
+.mail-details .delete-mail{
+    float: right;
+}
+
+.mail-details img{
+    width: 25px;
+    height: 25px;
+}

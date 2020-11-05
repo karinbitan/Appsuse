@@ -3,7 +3,7 @@ import {eventBus} from './../../../services/event-bus-service.js';
 
 export default {
     template: `
-    <section>
+    <section class="mail-compose">
         <form @submit.prevent="onAddMail" class="new-message">
             <h2 class="new-message-header">New message</h2>
             <div class="new-message-text flex-column">
@@ -29,6 +29,7 @@ export default {
             var body = this.mail.body;
             mailService.addMail(subject, body);
             eventBus.$emit('mail-added');
+            eventBus.$emit('show-msg', 'Mail sent!')
             this.$router.push('/mail')
         }
     }

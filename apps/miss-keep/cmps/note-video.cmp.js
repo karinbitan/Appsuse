@@ -17,7 +17,7 @@ export default {
         }
     },
 
-    methods: {
+    computed: {
         urlForEmbed() {
             var url = this.txt
             var vidId = keepService.youtubeParser(url);

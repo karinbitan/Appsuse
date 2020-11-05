@@ -58,7 +58,7 @@ function removeMail(mailId) {
     utilService.storeToStorage(STORAGE_KEY, mails);
 }
 
-function addMail(subject, body){
+function addMail(subject, body) {
     var mails = utilService.loadFromStorage(STORAGE_KEY);
     var mail = createMail(subject, body)
     mails.unshift(mail);

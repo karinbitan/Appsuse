@@ -3,6 +3,7 @@ import keepApp from './apps/miss-keep/keep-app.cmp.js';
 import mailApp from './apps/mister-mail/pages/mail-app.cmp.js';
 import bookApp from './pages/book-app.cmp.js';
 import mailDetails from './apps/mister-mail/cmps/mail-details.cmp.js';
+import mailList from './apps/mister-mail/cmps/mail-list.cmp.js';
 
 const routes = [
     {
@@ -16,17 +17,21 @@ const routes = [
     {
         path: '/mail',
         component: mailApp,
-        // children: [
-        //     {
-        //         path: 'mailId',
-        //         component: mailDetails
-        //     }
-        // ]
+        children: [
+            {
+                path: '',
+                component: mailList
+            },
+            {
+                path: ':mailId',
+                component: mailDetails
+            }
+        ]
     },
-    {
-        path: '/mail/:mailId',
-        component: mailDetails
-    },
+    // {
+    //     path: '/mail/:mailId',
+    //     component: mailDetails
+    // },
     {
         path: '/book',
         component: bookApp

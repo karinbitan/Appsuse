@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/event-bus-service.js";
 
 export default {
     template: `
@@ -20,7 +21,8 @@ export default {
     },
     methods: {
         emitFilter(){
-            this.$emit('filtered', this.filterBy);
+            // this.$emit('filtered', this.filterBy);
+            eventBus.$emit('filtered2', this.filterBy)
             console.log(this.filterBy)
         }
     }

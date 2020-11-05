@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/event-bus-service.js";
 
 export default {
     template: `
@@ -13,7 +14,7 @@ export default {
     `,
     methods: {
         composeMail() {
-            console.log('work')
+            this.$router.push('/mail/compose')
         },
         backToMain() {
             this.$router.push('/mail');

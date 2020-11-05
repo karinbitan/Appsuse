@@ -1,6 +1,6 @@
 // import { mailService } from "../services/mail-service";
-
 import { eventBus } from "../../../services/event-bus-service.js";
+import { mailService } from "../services/mail-service.js";
 
 export default {
     props: ['mail'],
@@ -16,7 +16,7 @@ export default {
     `,
     data() {
         return {
-            isRead: false,
+            isRead: this.mail.isRead,
         }
     },
     computed: {
@@ -36,8 +36,8 @@ export default {
             // eventBus.$emit('selectMail');
         },
         markReadUnRead() {
-            this.isRead = !this.isRead;
-            // TODO: SAVE READ/UNREAD STATE
+            mailService.markAsRead(this.mail.id)
+            
         }
-    }
+    },
 }

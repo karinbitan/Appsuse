@@ -1,9 +1,3 @@
-.mail-compose{
-    position: absolute;
-    top: 10;
-    display: none;
-}
-
 .new-message-header {
     background-color: rgb(23, 19, 43);
     color: white;

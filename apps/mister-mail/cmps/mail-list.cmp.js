@@ -6,10 +6,9 @@ export default {
     // props: ['mails'],
     template: `
     <section class="mail-list">
-        <div v-for="mail in mails">
+        <div v-for="mail in mailsToShow">
             <mail-preview :mail="mail" />  
         </div>
-        <!-- <router-view /> -->
     </section>
     `,
     data() {
@@ -20,15 +19,23 @@ export default {
     },
     computed: {
         mailsToShow() {
-            // FIX
-            if (this.filterBy === null || (this.filterBy.text === null && this.filterBy.readUnread === 'All')) {
+            // FIX the empty string
+            if (this.filterBy === null) {
                 return this.mails;
             }
             const bySubject = this.filterBy.bySubject.toLowerCase();
             return this.mails.filter((mail) => {
+                var isRead = this.filterBy.readUnRead === 'Read' ? true : false;
+                var isAll = this.filterBy.readUnRead === 'All';
                 return mail.subject.toLowerCase().includes(bySubject)
+                && (
+                    
+                        ((isRead && mail.isRead) ||
+                        (!isRead && !mail.isRead))
+                        || isAll
+                    )
                 //  && ((this.filterBy.readUnread === 'Read' && mail.isRead)
-                //     || (this.filterBy.readUnread === 'Unread' && !mail.isUnread))
+                //     || (this.filterBy.readUnread === 'Unread' && !mail.isRead))
             })
         }
     },
@@ -45,9 +52,9 @@ export default {
             mailService.getMails().then(mails => {
                 this.mails = mails;
             })
-            eventBus.$on('filtered2', (filterBy) => {
-                this.filterBy = filterBy;
-            })
+        })
+        eventBus.$on('filtered', (filterBy) => {
+            this.filterBy = filterBy;
         })
     },
     components: {

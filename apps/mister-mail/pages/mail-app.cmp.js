@@ -14,7 +14,7 @@ export default {
             <side-nav />
             <!-- <mail-list :mails="mailsToShow" /> -->
             <router-view></router-view>
-            <mail-compose class="mail-compose" /> 
+            <mail-compose v-if="compose" class="mail-compose" /> 
         </section>
     </section>
     `,
@@ -26,29 +26,12 @@ export default {
     },
     data() {
         return {
-            mails: [],
-            filterBy: null
+            compose: false,
         }
     },
-    computed: {
-        // mailsToShow() {
-        //     // FIX
-        //     if (this.filterBy === null || (this.filterBy.text === null && this.filterBy.readUnread === 'All')) {
-        //         return this.mails;
-        //     }
-        //     const bySubject = this.filterBy.bySubject.toLowerCase();
-        //     return this.mails.filter((mail) => {
-        //         return mail.subject.toLowerCase().includes(bySubject) && ((this.filterBy.readUnread === 'Read' && mail.isRead)
-        //         || (this.filterBy.readUnread === 'Unread' && !mail.isUnread))
-        //     })
-        // }
-    },
-    // created() {
-
-    // },
-    methods: {
-        // setFilter(filterBy) {
-        //     this.filterBy = filterBy;
-        // }
+    created(){
+        eventBus.$on('compose', () => {
+            this.compose = true;
+        })
     }
 }

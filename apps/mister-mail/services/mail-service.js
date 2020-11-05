@@ -9,7 +9,8 @@ export const mailService = {
     getMails,
     getMailById,
     removeMail,
-    addMail
+    addMail,
+    markAsRead
 }
 
 
@@ -29,7 +30,7 @@ function createMails() {
 
     if (!mails || !mails.length) {
         mails = [];
-        mails.push(createMail('Wassap?', 'Wanna eat pizza?'));
+        mails.push(createMail('Wassap?','Wanna eat pizza?'));
         mails.push(createMail('Sap?', 'Wanna eat vegan burger?'));
         mails.push(createMail('Hey!', 'Wanna build websites?'));
     }
@@ -62,5 +63,15 @@ function addMail(subject, body) {
     var mails = utilService.loadFromStorage(STORAGE_KEY);
     var mail = createMail(subject, body)
     mails.unshift(mail);
+    utilService.storeToStorage(STORAGE_KEY, mails);
+}
+
+function markAsRead(mailId, mark = true){
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    mails.map( mail => {
+        if (mail.id != mailId) return mail;
+        mail.isRead = mark;
+        return mail;
+    } )
     utilService.storeToStorage(STORAGE_KEY, mails);
 }

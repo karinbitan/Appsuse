@@ -4,6 +4,8 @@ import mailApp from './apps/mister-mail/pages/mail-app.cmp.js';
 import bookApp from './pages/book-app.cmp.js';
 import mailDetails from './apps/mister-mail/cmps/mail-details.cmp.js';
 import mailList from './apps/mister-mail/cmps/mail-list.cmp.js';
+import mailCompose from './apps/mister-mail/cmps/mail-compose.cmp.js';
+
 
 const routes = [
     {
@@ -19,8 +21,12 @@ const routes = [
         component: mailApp,
         children: [
             {
-                path: '',
+                path: '/',
                 component: mailList
+            },
+            {
+                path: 'compose',
+                component: mailCompose
             },
             {
                 path: ':mailId',
@@ -28,10 +34,6 @@ const routes = [
             }
         ]
     },
-    // {
-    //     path: '/mail/:mailId',
-    //     component: mailDetails
-    // },
     {
         path: '/book',
         component: bookApp

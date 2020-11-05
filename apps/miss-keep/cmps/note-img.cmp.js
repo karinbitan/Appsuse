@@ -15,5 +15,11 @@ export default {
             title: this.note.info.title,
             txt: this.note.info.txt 
         }
+    },
+    
+    methods: {
+        reportVal() {
+            this.$emit('sendInfo', this.title, this.txt);
+        }
     }
 }

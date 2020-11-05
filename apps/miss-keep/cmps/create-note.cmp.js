@@ -1,8 +1,8 @@
 export default {
     template: `
-    <section class="create-note flex-column align-center">
+     <form @submit.prevent="saveNote" class="create-note flex-column align-center">
         <input type="text" name="title" placeholder="Add Title" v-model="title" @blur="reportVal">
-        <textarea name="txt" cols="50" v-model="txt" @blur="reportVal"></textarea>
+        <textarea name="txt" cols="50" v-model="txt" @blur="reportVal" :placeholder="placeholderTxt"></textarea>
         <label for="choose-txt">txt
             <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true">
         </label>
@@ -15,7 +15,8 @@ export default {
         <label for="choose-video">video
             <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType">
         </label>
-    </section>
+        <button>Add Note</button>
+     </form>
     `,
 
     props: ['note'],
@@ -24,6 +25,7 @@ export default {
         return {
             title: this.note ? this.note.info.title : '',
             txt: this.note ? this.note.info.txt : '',
+            type: this.note ? this.note.type : ''
         }
     },
     
@@ -35,24 +37,34 @@ export default {
         newNoteType(ev) {
             const selectedValue = ev.target.defaultValue;
             this.$emit('sendType', selectedValue);
+        },
+
+        saveNote() {
+            this.$emit('sendNote', this.note);
+            this.clearInput();
+        },
+
+        clearInput() {
+            this.title = '';
+            this.txt = '';
         }
     },
 
     computed: {
         placeholderTxt() {
-            const noteType = this.note.type;
-            const placeholderTxt = '';
+            const noteType = this.note ? this.note.type : 'note-txt';
+            var placeholderTxt = '';
             switch(noteType) {
-                case 'txt':
+                case 'note-txt':
                     placeholderTxt = 'Take a note...'
                     break;
-                case 'img':
+                case 'note-img':
                     placeholderTxt = 'Enter image URL'
                     break;
-                case 'video':
+                case 'note-video':
                     placeholderTxt = 'Enter video URL'
                     break;
-                case 'todo':
+                case 'note-todo':
                     placeholderTxt = 'Write your to do list, seperated with ","'
                     break;
                 default:
@@ -62,7 +74,7 @@ export default {
         },
 
         created() {
-            console.log(this.note);
+    
         }
     }
 }

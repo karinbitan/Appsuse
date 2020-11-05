@@ -8,12 +8,9 @@ import noteVideo from './cmps/note-video.cmp.js';
 export default {
     template: `
     <section class="keep-app">
-        <form @submit.prevent="saveNote">
-            <create-note :note="note" @sendInfo="saveInfo" @sendType="createNewNote"></create-note>
-            <button>Add Note</button>
-        </form>
+            <create-note :note="note" @sendInfo="saveInfo" @sendType="createNewNote" @sendNote="saveToNotes"></create-note>
         <div class="saved-notes">
-             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id"></component>
+             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id" @sendInfo="saveInfo"></component>
         </div>
     </section>
     `,
@@ -33,10 +30,9 @@ export default {
 
             this.note.info.title = title;
             this.note.info.txt = txt;
-            // this.note.type = type;
         },
 
-        saveNote() {
+        saveToNotes() {
             keepService.addToNotes(this.note);
             this.noteList = keepService.getNotes();
             this.note = keepService.createNote();
@@ -44,15 +40,11 @@ export default {
 
         createNewNote(noteType) {
             this.note = keepService.createNote(noteType);
-            console.log(this.note)
         }
     },
 
     created() {
-        //test note of type img 
-        // var note2 = keepService.createNote();
-        // note2.type = 'note-img';
-        // this.noteList.push(note2);
+        this.noteList = keepService.getNotes();
     },
 
     components: {

@@ -1,4 +1,4 @@
-.txt-note {
+.note-txt {
     background-color: #CBDFBD;
     max-width: 45vw;
     border: 2px solid #4A5922;
@@ -6,7 +6,7 @@
     margin: 1rem;
 }
 
-.txt-note input {
+.note-txt input {
     background-color: transparent;
     border: transparent;
     margin: 1rem;
@@ -16,11 +16,11 @@
     text-align: center;
 }
 
-.txt-note input:hover, .txt-note input:focus {
+.note-txt input:hover, .note-txt input:focus {
     border-bottom: 2px solid #4A5922;
 }
 
-.txt-note textarea {
+.note-txt textarea {
     background-color: transparent;
     border: transparent;
     margin: 1rem;
@@ -28,6 +28,6 @@
     max-width: 40vw;
 }
 
-.txt-note textarea:hover {
+.note-txt textarea:hover {
     outline: 2px solid #A44A3F;
 }

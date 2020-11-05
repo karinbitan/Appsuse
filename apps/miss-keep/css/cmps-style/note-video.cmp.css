@@ -1,0 +1,22 @@
+.note-video {
+    background-color: #ccdbfd;
+    max-width: 45vw;
+    border: 2px solid #31394e;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding-bottom: 1rem;
+}
+
+.note-video input {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 2rem;
+    color: #31394e;
+    font-weight: 700;
+    text-align: center;
+}
+
+.note-video input:hover, .note-video input:focus {
+    border-bottom: 2px solid #31394e;
+}

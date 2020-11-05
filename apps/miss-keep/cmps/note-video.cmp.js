@@ -3,8 +3,7 @@ export default {
     template: `
     <section class="note-video">
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <iframe :src="urlForEmbed" referrerpolicy="no-referrer"></iframe>
-    </section>
+        <iframe width="560" height="315" :src="urlForEmbed" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
     `,
 
@@ -17,17 +16,18 @@ export default {
         }
     },
 
+    methods: {
+        reportVal() {
+            this.$emit('sendInfo', this.title, this.txt);
+        }
+    },
+
     computed: {
         urlForEmbed() {
             var url = this.txt
             var vidId = keepService.youtubeParser(url);
             var urlForEmbed = `https://www.youtube.com/embed/${vidId}`;
-            console.log(vidId);
             return urlForEmbed;
-        },
-
-        reportVal() {
-            this.$emit('sendInfo', this.title, this.txt);
         }
     },
 

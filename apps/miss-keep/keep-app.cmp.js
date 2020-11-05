@@ -30,6 +30,7 @@ export default {
 
             this.note.info.title = title;
             this.note.info.txt = txt;
+            
         },
 
         saveToNotes() {

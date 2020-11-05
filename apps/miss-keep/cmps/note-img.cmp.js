@@ -1,8 +1,9 @@
 
 export default {
     template: `
-    <section>
-        <img src="apps/mister-mail/assest/img/icon/mail-icon.png" width="50" height="50" />
+    <section class="img-note">
+        <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
+        <img :src="txt" />
     </section>
     `,
 

@@ -8,12 +8,12 @@ export const keepService = {
 
 var notes = [];
 
-function createNote() {
+function createNote(noteType = 'img') {
     let newNote = {
         id: utilService.makeId(),
-        type: 'note-txt',
+        type: `note-${noteType}`,
         isPinned: false,
-        info: {title:'', txt:''},
+        info: {},
         style: {}
     };
     return newNote;

@@ -8,15 +8,11 @@ export default {
     template: `
     <section class="keep-app">
         <form @submit.prevent="saveNote">
-            <create-note :note="note" @sendInfo="saveInfo"></create-note>
+            <create-note :note="note" @sendInfo="saveInfo" @sendType="createNewNote"></create-note>
             <button>Add Note</button>
         </form>
         <div class="saved-notes">
              <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id"></component>
-            <!-- <div v-for="note in noteList" :key="note.id">
-                <h3>{{note.info.title}}</h3>
-                <p>{{note.info.txt}}</p>
-            </div> -->
         </div>
     </section>
     `,
@@ -34,7 +30,7 @@ export default {
                 this.note = {info: {}}
             }
 
-            this.note.type = 'note-txt';
+            this.note.type = 'note-img';
             this.note.info.title = title;
             this.note.info.txt = txt;
         },
@@ -42,15 +38,15 @@ export default {
         saveNote() {
             keepService.addToNotes(this.note);
             this.noteList = keepService.getNotes();
-            //this.note = keepService.createNote();
+            this.note = keepService.createNote();
+        },
+
+        createNewNote(noteType) {
+            this.note = keepService.createNote(noteType);
         }
     },
 
     created() {
-        // this.note = keepService.createNote();
-        // this.noteList.push(this.note);
-
-
         //test note of type img 
         // var note2 = keepService.createNote();
         // note2.type = 'note-img';

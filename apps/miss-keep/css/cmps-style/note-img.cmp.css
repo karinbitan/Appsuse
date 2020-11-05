@@ -1,0 +1,28 @@
+.img-note {
+    background-color: #f7cbb9;
+    max-width: 45vw;
+    border: 2px solid #A44A3F;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.img-note input {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 2rem;
+    color: #A44A3F;
+    font-weight: 700;
+    text-align: center;
+}
+
+.img-note input:hover, .img-note input:focus {
+    border-bottom: 2px solid #A44A3F;
+}
+
+.img-note img {
+    max-width: 40vw;
+    max-height: 45vh;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}

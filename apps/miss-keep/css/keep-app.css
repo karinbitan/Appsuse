@@ -1,5 +1,6 @@
 @import "./cmps-style/create-note.cmp.css";
 @import "./cmps-style/note-txt.cmp.css";
+@import "./cmps-style/note-img.cmp.css";
 
 .keep-app {
     background-color: #F6F4D2;

@@ -2,25 +2,26 @@
     background-color: rgb(23, 19, 43);
     color: white;
     margin: 0;
-    padding:10px;
+    padding: 10px;
 }
 
-.new-message-text input[type="text"]{
+.new-message-text input[type="text"] {
     border: none;
     border-bottom: 1px solid gray;
-    padding:10px;
+    padding: 10px;
 }
 
-.new-message-text .mail-body{
+.new-message-text .mail-body {
+    width: 100%;
     height: 350px;
     border: none;
     resize: none;
 }
 
-.new-message button{
+.new-message button {
     padding: 10px;
     color: white;
-    background-color: rgb(164, 74, 63);
+    background-color: #A44A3F;
     border: none;
     margin: 10px;
 }

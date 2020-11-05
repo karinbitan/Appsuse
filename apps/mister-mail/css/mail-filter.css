@@ -1,0 +1,30 @@
+.mail-filter {
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.mail-filter input[type="search"] {
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+    float: left;
+    background-color: #f1f1f1;
+    border: none;
+}
+
+.mail-filter select {
+    float: left;
+    height: 40px;
+    background-color: #f1f1f1;
+}
+
+.mail-filter button {
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    float: left;
+    border: none;
+    background:  #A44A3F;
+    color: white;
+}

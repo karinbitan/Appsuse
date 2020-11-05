@@ -5,8 +5,12 @@
     margin: 0;
 }
 
-.mail-preview ul .unread {
+.unread {
     font-weight: bold;
+}
+
+.read {
+    font-weight: normal;
 }
 
 .mail-preview ul .previewText{

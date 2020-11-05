@@ -7,10 +7,12 @@ import mailFilter from './../cmps/mail-filter.cmp.js';
 
 export default {
     template: `
-    <section class="mail-app flex">
+    <section class="mail-app flex-column">
         <mail-filter @filtered="setFilter" />
-        <side-nav />
-        <mail-list :mails="mailsToShow" />
+        <section class="mail-container flex">
+            <side-nav />
+            <mail-list :mails="mailsToShow" />
+        </section>
     </section>
     `,
     components: {
@@ -26,10 +28,14 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if(this.filterBy === null ) return this.mails;
-            const byName = this.filterBy.byName.toLowerCase();
-            return this.mails.filter( (mail) => {
-                return mail.subject.toLowerCase().include(byName);
+            // FIX
+            if (this.filterBy === null || (this.filterBy.text === null && this.filterBy.readUnread === 'All')) {
+                return this.mails;
+            }
+            const bySubject = this.filterBy.bySubject.toLowerCase();
+            return this.mails.filter((mail) => {
+                return mail.subject.toLowerCase().includes(bySubject) && ((this.filterBy.readUnread === 'Read' && mail.isRead)
+                || (this.filterBy.readUnread === 'Unread' && !mail.isUnread))
             })
         }
     },
@@ -49,7 +55,7 @@ export default {
         })
     },
     methods: {
-        setFilter(filterBy){
+        setFilter(filterBy) {
             this.filterBy = filterBy;
         }
     }

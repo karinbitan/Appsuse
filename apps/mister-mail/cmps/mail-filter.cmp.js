@@ -1,21 +1,27 @@
 
 export default {
     template: `
-    <section>
+    <section class="mail-filter">
         <form @submit.prevent="emitFilter">
-            <input type="search" v-model="filterBy.bySubject" />
+            <input type="search" name="search-text" v-model="filterBy.bySubject" />
+            <select v-model="filterBy.readUnRead" name="read-unread">
+                <option>All</option>
+                <option>Read</option>
+                <option>Unraed</option>
+            </select>
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </section>
     `,
     data(){
         return {
-            filterBy:{bySubject: ''}
-            // , byRead: true, byUnread: false 
+            filterBy:{bySubject: '', readUnRead: null}
         }
     },
     methods: {
         emitFilter(){
-            this.$emit('filtered', this.filterBy)
+            this.$emit('filtered', this.filterBy);
+            console.log(this.filterBy)
         }
     }
 }

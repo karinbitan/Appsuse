@@ -3,8 +3,8 @@
 export default {
     props: ['mail'],
     template: `
-    <section class="mail-preview">
-    <ul class="flex space-between" :class="unRead" @click="bookDetails('/mail/' +mail.id)">
+    <section class="mail-preview" @click="bookDetails('/mail/' +mail.id)">
+    <ul class="flex space-between" :class="readUnRead" @click="isRead = !isRead">
         <li>Karin</li>
         <li>{{mail.subject}}</li>
         <li class="previewText">{{mailText}}</li>
@@ -14,12 +14,12 @@ export default {
     `,
     data() {
         return {
-            isRead: true,
+            isRead: false,
         }
     },
     computed: {
-        unRead() {
-            return { unread: !this.isRead }
+        readUnRead() {
+            return { read: this.isRead === true, unread: !this.isRead }
         },
         mailText() {
             const mail = this.mail.body;

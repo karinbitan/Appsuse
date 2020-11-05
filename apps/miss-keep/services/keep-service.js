@@ -5,7 +5,6 @@ export const keepService = {
     addToNotes,
     getNotes,
     getNoteById,
-    updateInStorage,
     youtubeParser
 }
 
@@ -47,8 +46,15 @@ function getNoteById(noteId) {
     return  note;
 }
 
+function findNoteIdx(noteId) {
+    return notes.findIndex(getNoteById(noteId));
+
+}
+
 function updateInStorage(noteId, editedNote) {
-    var noteToUpdate = getNoteById(noteId);
-    noteToUpdate = editedNote;
-    saveNotesToStorage();
+    // var noteToUpdate = getNoteById(noteId);
+    // noteToUpdate = editedNote;
+    // let idx = findNoteIdx(noteId);
+    // notes.splice(idx, 1, noteToUpdate);
+    // saveNotesToStorage();
 }

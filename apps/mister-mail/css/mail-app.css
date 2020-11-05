@@ -2,4 +2,5 @@
 @import './mail-list.css';
 @import './side-nav.css';
 @import './mail-compose.css';
-@import './mail-filter.css'
+@import './mail-filter.css';
+@import './mail-details.css';

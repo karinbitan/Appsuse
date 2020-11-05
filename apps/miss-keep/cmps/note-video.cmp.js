@@ -17,11 +17,12 @@ export default {
         }
     },
 
-    methods: {
+    computed: {
         urlForEmbed() {
             var url = this.txt
             var vidId = keepService.youtubeParser(url);
             var urlForEmbed = `https://www.youtube.com/embed/${vidId}`;
+            debugger;
             return urlForEmbed;
         }
     },

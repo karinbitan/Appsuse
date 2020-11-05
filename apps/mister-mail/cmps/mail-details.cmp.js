@@ -4,9 +4,9 @@ import { mailService } from './../services/mail-service.js';
 export default {
     template: `
     <section class="mail-details">
-    <h2>{{mail.subject}}</h2>
+        <h2 class="subject">{{mail.subject}}</h2>
+        <button class="delete-mail" @click="onRemoveMail(mail.id)"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
     <p>{{mail.body}}</p>
-    <button @click="onRemoveMail(mail.id)">X</button>
     </section>
     `,
     data() {
@@ -24,6 +24,7 @@ export default {
         onRemoveMail(mailId) {
             mailService.removeMail(mailId);
             eventBus.$emit('mail-deleted');
+            eventBus.$emit('show-msg', 'Mail deleted')
             this.$router.push('/mail')
         },
     }

@@ -1,5 +1,6 @@
 @import './../apps/mister-mail/css/mail-app.css';
-@import '../apps/miss-keep/css/keep-app.css';
+@import './../apps/miss-keep/css/keep-app.css';
+@import './../apps/miss-books/css/main.css';
 @import './header.css';
 @import './footer.css';
 @import './user-msg.css';

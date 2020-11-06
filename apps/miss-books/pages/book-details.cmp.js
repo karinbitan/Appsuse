@@ -1,6 +1,7 @@
+import { bookService } from '../services/book-service.js';
 import longTxt from '../cmps/long-txt.cmp.js';
-import {bookService} from '../services/book-service.js';
-// import addReview from '../cmps/add-review.cmp'
+import reviewAdd from '../cmps/review-add.cmp.js';
+import reviewList from './../cmps/review-list.cmp.js';
 
 export default {
     template: `
@@ -8,7 +9,7 @@ export default {
         <button @click="closeDetails">X</button>
         <h2 class="book-title">{{book.title}}</h2>
         <h3 class="book-subtitle">{{book.subtitle}}</h3>
-        <img src="img/onSale.png" v-if="isOnSale" height="200px" class="sale-img">
+        <!-- <img src="img/onSale.png" v-if="isOnSale" height="200px" class="sale-img"> -->
         <h4>Written by: {{authors}}</h4>
         <img :src="book.thumbnail" />
         <h4>Subjects: {{categories}}</h4>
@@ -17,14 +18,22 @@ export default {
         <h4>Published: {{book.publishedDate}} - <span class="book-age">{{publishedDateTxt}}</span></h4>
         <p>{{pageCount}}</p>
         <long-txt :txt="book.description" />
-        <!-- <add-review /> -->
+        <section class="review-container">
+            <review-list :bookId="book.id" />
+            <review-add :bookId="book.id" />
+        </section>
     </section>
     `,
 
     data() {
         return {
-            book: null
+            book: {}
         }
+    },
+    created() {
+        const id = this.$route.params.bookId;
+        bookService.getBookById(id).then(book => this.book = book);
+            console.log(this.book)
     },
 
     methods: {
@@ -35,11 +44,11 @@ export default {
 
     computed: {
         authors() {
-            return this.book.authors.join(', ');
+            return this.book.authors.join(',');
         },
 
         categories() {
-            return this.book.categories.join(', ');
+            return this.book.categories.join(',');
         },
 
         currencyIcon() {
@@ -56,7 +65,7 @@ export default {
                     icon = '$';
                     break;
                 default:
-                    icon = currency;      
+                    icon = currency;
             };
             return icon;
         },
@@ -65,7 +74,7 @@ export default {
             const currYear = new Date().getFullYear();
             const publishedDate = this.book.publishedDate;
             const res = currYear - publishedDate;
-            let txt = (res <= 1)? 'New!' : 'Veteran Book';
+            let txt = (res <= 1) ? 'New!' : 'Veteran Book';
             return txt;
         },
 
@@ -75,26 +84,20 @@ export default {
 
         pageCount() {
             const pages = this.book.pageCount;
-            let txt = (pages >= 500)? 'long' :
-            (pages >= 200)? 'decent' : 'light';
+            let txt = (pages >= 500) ? 'long' :
+                (pages >= 200) ? 'decent' : 'light';
             return `This book is ${pages} pages long, that's ${txt} reading`;
         },
 
         priceClass() {
             const bookPrice = this.book.listPrice.amount;
-            return {red: bookPrice > 150, green: bookPrice < 120};
+            return { red: bookPrice > 150, green: bookPrice < 120 };
         }
     },
 
-    created() {
-        const id = this.$route.params.bookId;
-        bookService.getBookById(id)
-        .then(book => this.book = book)
-    },
-
-     components: {
-         longTxt,
-         bookService,
-        //  addReview
-     }
+    components: {
+        longTxt,
+        reviewAdd,
+        reviewList
+    }
 }

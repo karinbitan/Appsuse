@@ -5,7 +5,7 @@ import { mailService } from "../services/mail-service.js";
 export default {
     props: ['mail'],
     template: `
-    <section class="mail-preview" @click="bookDetails('/mail/' +mail.id)">
+    <section class="mail-preview" @click="mailDetails('/mail/' +mail.id)">
     <ul class="flex space-between" :class="readUnRead" @click="markReadUnRead">
         <li><img :src="starUrl" /></li>
         <li class="from">Karin</li>
@@ -36,8 +36,8 @@ export default {
         }
     },
     methods: {
-        bookDetails(mailId) {
-            this.$router.push(`${mailId}`)
+        mailDetails(mailId) {
+            this.$router.push(`${mailId}`);
         },
         markReadUnRead() {
             mailService.markAsRead(this.mail.id);

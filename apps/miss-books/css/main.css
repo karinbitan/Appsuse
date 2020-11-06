@@ -1,10 +1,9 @@
 
-@import "./header.cmp.css";
 @import "./book-filter.cmp.css";
 @import "./book-list.cmp.css";
-@import "./home.cmp.css";
-@import "./about.css";
+/* @import "./home.cmp.css"; */
 @import "./book-details.cmp.css";
+@import './book-preview.css';
 
 /* General */
 
@@ -18,18 +17,18 @@ html {
 
 body {
     margin: 0;
-    background-color: #D1F0EE;
+    /* background-color: #D1F0EE; */
 }
 
 h1 {
     display: inline-block;
 }
 
-.book-app {
+/* .book-app {
     background-color: #D1F0EE;
-}
+} */
 
-/* Helpers */
+Helpers
 
 .flex {
     display: flex;

@@ -9,7 +9,7 @@ export default {
         <button @click="closeDetails">X</button>
         <h2 class="book-title">{{book.title}}</h2>
         <h3 class="book-subtitle">{{book.subtitle}}</h3>
-        <!-- <img src="img/onSale.png" v-if="isOnSale" height="200px" class="sale-img"> -->
+        <img src="apps/miss-books/assest/img/onSale.png" v-if="isOnSale" height="200px" class="sale-img">
         <h4>Written by: {{authors}}</h4>
         <img :src="book.thumbnail" />
         <h4>Subjects: {{categories}}</h4>

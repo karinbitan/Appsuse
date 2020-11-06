@@ -18,6 +18,7 @@ export default {
             this.unreadMails = this.mails.filter((mail) => {
                 return mail.isRead === false;
             })
+            if(this.unreadMails.length == 0) return '';
             return this.unreadMails.length;
         }
     },

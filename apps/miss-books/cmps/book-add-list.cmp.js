@@ -24,10 +24,10 @@ export default {
                 categories: book.volumeInfo.categories,
                 thumbnail: book.volumeInfo.imageLinks.thumbnail,
                 language: book.volumeInfo.language,
-                "listPrice": {
-                    "amount": 109,
-                    "currencyCode": "EUR",
-                    "isOnSale": false
+                listPrice: {
+                    amount: 109,
+                    currencyCode: "EUR",
+                    isOnSale: false
                 }
             }
             bookService.addBook(newBook).then(() => {

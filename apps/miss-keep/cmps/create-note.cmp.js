@@ -25,7 +25,6 @@ export default {
         return {
             title: this.note ? this.note.info.title : '',
             txt: this.note ? this.note.info.txt : '',
-            type: this.note ? this.note.type : ''
         }
     },
     

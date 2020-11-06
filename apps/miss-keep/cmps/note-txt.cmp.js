@@ -5,6 +5,7 @@ export default {
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
         <span class="edit-icon"><i class="fas fa-edit"></i></span>
         <textarea name="txt" rows="5" placeholder="Take a note..."  v-model="txt" @change="reportVal"></textarea>
+        <button class="remove-note" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
     </section>
     `,
 
@@ -19,7 +20,11 @@ export default {
     
     methods: {
         reportVal() {
-            this.$emit('sendInfo', this.title, this.txt);
+            this.$emit('sendInfo', this.title, this.txt, this.note.id);
+        },
+
+        removeNote() {
+            this.$emit('removeNote', this.note.id);
         }
     }
 }

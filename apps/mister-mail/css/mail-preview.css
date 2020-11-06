@@ -12,3 +12,11 @@
 .read {
     font-weight: normal;
 }
+
+.subject {
+    width: 100px;
+}
+
+.mail-message {
+    width: 200px;
+}

@@ -2,6 +2,15 @@
     width: 300px;
 }
 
+.compose-mail-btn {
+    cursor: pointer;
+    margin-left: 40px;
+    border: 1px solid grey;
+    border-radius: 14px;
+    width: 120px;
+    padding: 10px;
+}
+
 .side-nav ul {
     list-style-type: none;
     height: 300px;
@@ -15,3 +24,4 @@
     width: 25px;
     height: 25px;
 }
+

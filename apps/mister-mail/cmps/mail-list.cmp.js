@@ -11,6 +11,12 @@ export default {
     },
     template: `
     <section class="mail-list">
+        <!-- <ul class="mail-list-header flex">
+            <li>Priority</li>
+            <li>From</li>
+            <li>Subject</li>
+            <li>Sent at</li>
+        </ul> -->
         <div v-for="mail in mailsToShow">
             <mail-preview :mail="mail" />  
         </div>
@@ -58,19 +64,6 @@ export default {
         eventBus.$on('filtered', (filterBy) => {
             this.filterBy = filterBy;
         })
-        // }),
-        // eventBus.$on('mail-starred', () => {
-        //     mailService.getMails().then(mails => {
-        //         this.mails = mails;
-        //     })
-        // }),
-        // eventBus.$on('mail-unstarred', () => {
-        //     mailService.getMails().then(mails => {
-        //         this.mails = mails;
-        //     })
-        // eventBus.$on('starred-only', () =>{
-        //     this.starredOnly = true;
-        // })
     },
     components: {
         mailPreview

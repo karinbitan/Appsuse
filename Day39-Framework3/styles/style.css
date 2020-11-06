@@ -1,0 +1,42 @@
+
+@import "./header.cmp.css";
+@import "./book-filter.cmp.css";
+@import "./book-list.cmp.css";
+@import "./home.cmp.css";
+@import "./about.css";
+@import "./book-details.cmp.css";
+
+/* General */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #D1F0EE;
+}
+
+h1 {
+    display: inline-block;
+}
+
+.book-app {
+    background-color: #D1F0EE;
+}
+
+/* Helpers */
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+

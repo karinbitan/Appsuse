@@ -1,0 +1,9 @@
+.book-details {
+    flex-direction: column;
+}
+
+.book-details h2 {
+    font-size: 3rem;
+    color: #5E6472;
+    text-transform: capitalize;
+}

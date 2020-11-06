@@ -1,0 +1,25 @@
+.about {
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 4rem;
+    color: #5E6472;
+    z-index: 0;
+    margin: 2rem;
+}
+
+.about img {
+    display: block;
+    max-height: 45vh;
+    margin: 0 auto 1rem;
+    border-radius: 1rem;
+}
+
+.about p {
+    font-size: 1.25rem;
+    color: #5E6472;
+    line-height: 1.85rem;
+    max-width: 1020px;
+    margin: 2rem auto;
+}

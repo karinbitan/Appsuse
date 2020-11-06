@@ -1,0 +1,41 @@
+
+.book-header {
+    background-color: #5E6472;
+    color: #FFA69E;
+    fill: #FFA69E;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    cursor: pointer;
+}
+
+h1.logo-txt {
+    margin: 0 0.75rem;
+    font-size: 2.5rem;
+}
+
+.book-header nav a {
+    color: #FFA69E;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-inline-end: 0.75rem;
+}
+
+.book-header nav a:hover {
+    text-decoration: underline;
+}
+
+.book-header nav a:active {
+    text-decoration: underline;
+    font-weight: bolder;
+    color: #D1F0EE;
+}
+
+.router-link-exact-active .router-link-active {
+    text-decoration: underline;
+    font-weight: bolder;
+    color: #D1F0EE;
+}

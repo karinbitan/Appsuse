@@ -8,9 +8,9 @@ export default {
     <section class="mail-preview" @click="bookDetails('/mail/' +mail.id)">
     <ul class="flex space-between" :class="readUnRead" @click="markReadUnRead">
         <li><img :src="starUrl" /></li>
-        <li>Karin</li>
-        <li>{{mail.subject}}</li>
-        <li class="grey">{{mailText}}</li>
+        <li class="from">Karin</li>
+        <li class="subject">{{mail.subject}}</li>
+        <li class="mail-message grey">{{mailText}}</li>
         <li>{{mail.sentAt}}</li>
     </ul>
     </section>
@@ -40,7 +40,8 @@ export default {
             this.$router.push(`${mailId}`)
         },
         markReadUnRead() {
-            mailService.markAsRead(this.mail.id)
+            mailService.markAsRead(this.mail.id);
+            eventBus.$emit('mail-readed');
             
         }
     },

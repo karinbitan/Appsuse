@@ -4,7 +4,7 @@ import mailStatus from './mail-status.cmp.js';
 export default {
     template: `
         <nav class="side-nav">
-        <div @click="composeMail">Compose <img src="apps/mister-mail/assest/img/icon/add.png" /></div>
+        <div class="compose-mail-btn" @click="composeMail">Compose <img src="apps/mister-mail/assest/img/icon/add.png" /></div>
             <ul class="flex-column space-evenly">
                 <li @click="backToMain">Inbox <img src="apps/mister-mail/assest/img/icon/mail-icon.png" />
                 <mail-status />

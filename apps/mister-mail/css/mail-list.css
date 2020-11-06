@@ -1,4 +1,9 @@
 .mail-list {
-    width: 1000px;
+    width: 800px;
     border: 1px solid black;
+}
+
+.mail-list img {
+    width: 25px;
+    height: 25px;
 }

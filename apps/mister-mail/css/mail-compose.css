@@ -1,6 +1,7 @@
 .mail-compose {
     width: 50%;
     border: 1px solid #A44A3F;
+    position: relative;
 }
 
 .mail-compose img {
@@ -28,15 +29,18 @@
     resize: none;
 }
 
-.new-message .delete-draft {
+.new-message .send-mail {
     padding: 10px;
     color: white;
     background-color: #A44A3F;
     border: none;
-    margin: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
 }
 
-.new-message .send-mail {
-    float: right;
+.new-message .delete-draft {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
 }
-

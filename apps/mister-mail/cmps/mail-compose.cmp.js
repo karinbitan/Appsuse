@@ -11,10 +11,10 @@ export default {
                     <input type="text" placeholder="Subject" v-model="mail.subject" />
                     <textarea class="mail-body" v-model="mail.body"></textarea>
                 </div>
-                <button class="delete-draft">Send</button>
-                <button class="send-mail"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
-        </form>
-    </section>
+                <button class="send-mail">Send</button>
+            </form>
+            <button class="delete-draft"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
+        </section>
     `,
     data() {
         return {

@@ -42,8 +42,13 @@ function createMails() {
     return mails;
 }
 
-function getMails() {
+function getMails(starredOnly = false) {
     var mails = utilService.loadFromStorage(STORAGE_KEY);
+    if (starredOnly) {
+        mails = mails.filter((mail) => {
+            return mail.isStarred;
+        });
+    }
     return Promise.resolve(mails);
 }
 

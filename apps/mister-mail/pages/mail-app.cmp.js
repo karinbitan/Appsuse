@@ -11,7 +11,7 @@ export default {
         <mail-filter />
         <section class="mail-container flex">
             <side-nav />
-            <router-view></router-view>
+            <router-view :key="$route.path"></router-view>
         </section>
     </section>
     `,

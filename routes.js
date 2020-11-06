@@ -11,7 +11,7 @@ import mailCompose from './apps/mister-mail/cmps/mail-compose.cmp.js';
 const routes = [
     {
         path: '/',
-        component: homePage
+        component: homePage,
     },
     {
         path: '/keep',
@@ -24,6 +24,13 @@ const routes = [
             {
                 path: '/',
                 component: mailList
+            },
+            {
+                path: 'starred',
+                component: mailList,
+                props: {
+                    starredOnly: true
+                }
             },
             {
                 path: 'compose',

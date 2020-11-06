@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+      margin: 2px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    h1, h2 {
+      margin: 0;
+    }
+    p {
+      line-height: 16px;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      font-family: 'Roboto Mono', monospace;
+    }
+    .app-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline; 
+    }
+    .code {
+      background: grey;
+      font-weight: 400;
+      border-radius: 3px;
+      padding: 4px;
+      width: max-content;
+    }
+    .code.route {
+      margin-top: 4px;
+    }
+    .question {
+      margin: 10px;
+      line-height: 24px;
+      font-size: 18px;
+    }
+    .question > b {
+      font-style: italic;
+      font-size: 22px;
+    }
+    .sub-paragraph {
+      margin-left: 8px; 
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script src="lib/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.4.0/dist/vue-router.js"></script>
+    <script>
+        Vue.use(VueRouter)
+
+        // Component recieves no props
+        const TheFirstSimpleComponent = {
+            name: 'TheFirstSimpleComponent',
+            template:
+                `<div>
+        <p class="question">Are there any props passed? - <b>{{ prop }}</b>!</p>
+    </div>`,
+            props: {
+                prop: {
+                    type: String,
+                    default: 'no'
+                }
+            }
+        }
+        // Component recieves a props passed thought route.params.
+        // There are 2 ways of accesing them: 1) thought prop; 2) calling $route.params
+        const TheSecondSimpleComponent = {
+            name: 'TheSecondSimpleComponent',
+            template:
+                `<div>
+        <p class="question">Are there any props passed? - <b>{{ prop }}</b>!</p>
+        <p>The props are also accesible inside $route.params Object</p>
+        <p>$route.params.prop === {{ $route.params.prop }}</p>
+    </div>`,
+            props: {
+                prop: {
+                    type: String,
+                    default: 'no'
+                }
+            }
+        }
+        // Component recieves static props
+        const TheThirdSimpleComponent = {
+            name: 'TheThirdSimpleComponent',
+            template:
+                `<div>
+        <p class="question">Are there any props passed? - <b>{{ prop }}</b>!</p>
+    </div>`,
+            props: {
+                prop: {
+                    type: String,
+                    default: 'no'
+                }
+            }
+        }
+        // Component recieves dynamic prop
+        const TheFourthSimpleComponent = {
+            name: 'TheFourthSimpleComponent',
+            template:
+                `<div>
+        <p class="question">The value of the passed prop is - <b>{{ prop }}</b></p>
+    </div>`,
+            props: {
+                prop: {
+                    type: String,
+                }
+            }
+        }
+        // Component passing data using attrs
+        const TheAttrs = {
+            name: 'Attrs',
+            template:
+                `<div>
+        <p class="question">The attributes are:</p>
+        <pre>{{ $attrs }}</pre>
+    </div>`
+        }
+        const router = new VueRouter({
+            mode: 'history',
+            base: "/",
+            routes: [
+                { path: '/', component: TheFirstSimpleComponent },
+                { path: '/second/:prop', component: TheSecondSimpleComponent, props: true },
+                { path: '/static', component: TheThirdSimpleComponent, props: { prop: 'yes' } },
+                { path: '/dynamic/:prop', component: TheFourthSimpleComponent, props: yesNoPropsFn },
+                { path: '/attrs', component: TheAttrs }
+            ]
+        })
+        function yesNoPropsFn(route) {
+            return {
+                prop: route.params.prop === 'yes' ? 'yes' : 'no'
+            }
+        }
+        new Vue({
+            router,
+            template: `
+    <div id="app">
+      <h3>Route props</h3>
+      <div class="app-container">
+      <ol>
+        <li><router-link to="/">/</router-link></li>
+        <div>
+          <div class="code">
+            <p>{</p>
+            <p class="sub-paragraph">path: '/',</p>
+            <p class="sub-paragraph">component: TheFirstSimpleComponent</p> 
+            <p>}</p>
+          </div>
+        </div>
+        <li><router-link to="/second/yes">/second/yes</router-link></li>
+        <div>
+          <div class="code">
+            <p>{</p>
+            <p class="sub-paragraph">path: '/second/:prop',</p>
+            <p class="sub-paragraph">component: TheSecondSimpleComponent</p>
+            <p class="sub-paragraph">props: true</p> 
+            <p>}</p>
+          </div>
+        </div>
+        <li><router-link to="/static">/static</router-link></li>
+        <div>
+          <div class="code">
+            <p>{</p>
+            <p class="sub-paragraph">path: '/static',</p>
+            <p class="sub-paragraph">component: TheThirdSimpleComponent</p>
+            <p class="sub-paragraph">props: { prop: 'yes' }</p> 
+            <p>}</p>
+          </div>
+        </div>
+        </li>
+        <li><router-link to="/dynamic/yes">/dynamic/yes</router-link></li>
+        <div>
+          <div class="code">
+            <p>{</p>
+            <p class="sub-paragraph">path: '/dynamic/:prop',</p>
+            <p class="sub-paragraph">component: TheFourthSimpleComponent</p>
+            <p class="sub-paragraph">props: yesNoPropsFn</p> 
+            <p>}</p>
+          </div>
+        </div>
+        <li><router-link to="/attrs">/attrs</router-link></li>
+        <div>
+          <div class="code">
+            <p>{</p>
+            <p class="sub-paragraph">path: '/attrs',</p>
+            <p class="sub-paragraph">component: TheAttrs</p>
+            <p>}</p>
+          </div>
+          <div class="code route">
+            <p>< router-view class="router-link" data="123" ></p>
+          </div>
+        </div>
+      </ol>
+      <router-view class="router-link" data="123"></router-view>
+      </div>
+    </div>
+  `
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>

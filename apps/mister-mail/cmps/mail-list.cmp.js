@@ -3,6 +3,12 @@ import mailPreview from './mail-preview.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
+    props: {
+        starredOnly: {
+            type: Boolean,
+            default: false
+        }
+    },
     template: `
     <section class="mail-list">
         <div v-for="mail in mailsToShow">
@@ -13,22 +19,20 @@ export default {
     data() {
         return {
             mails: [],
-            filterBy: null,
-            starredOnly: false,
+            filterBy: null
         }
     },
     computed: {
         mailsToShow() {
-            if (this.filterBy === null) {
-                return this.mails;
-            }
+            // if (this.starredOnly) return this.mails.filter((mail) => {
+            //     return mail.isStarred;
+            // })
+            if (this.filterBy === null) return this.mails;
             const bySubject = this.filterBy.bySubject.toLowerCase();
             return this.mails.filter((mail) => {
                 var isRead = this.filterBy.readUnRead === 'Read' ? true : false;
                 var isAll = this.filterBy.readUnRead === 'All';
                 return mail.subject.toLowerCase().includes(bySubject)
-                // &&
-                // (this.starredOnly === mail.isStarred)
                 && (
                         ((isRead && mail.isRead) ||
                         (!isRead && !mail.isRead))
@@ -38,22 +42,22 @@ export default {
         }
     },
     created() {
-        mailService.getMails().then(mails => {
+        mailService.getMails(this.starredOnly).then(mails => {
             this.mails = mails;
         }),
         eventBus.$on('mail-deleted', () => {
-            mailService.getMails().then(mails => {
+            mailService.getMails(this.starredOnly).then(mails => {
                 this.mails = mails;
             })
         }),
         eventBus.$on('mail-added', () => {
-            mailService.getMails().then(mails => {
+            mailService.getMails(this.starredOnly).then(mails => {
                 this.mails = mails;
             })
         }),
         eventBus.$on('filtered', (filterBy) => {
             this.filterBy = filterBy;
-        }),
+        })
         // }),
         // eventBus.$on('mail-starred', () => {
         //     mailService.getMails().then(mails => {
@@ -64,9 +68,9 @@ export default {
         //     mailService.getMails().then(mails => {
         //         this.mails = mails;
         //     })
-        eventBus.$on('starred-only', () =>{
-            this.starredOnly = true;
-        })
+        // eventBus.$on('starred-only', () =>{
+        //     this.starredOnly = true;
+        // })
     },
     components: {
         mailPreview

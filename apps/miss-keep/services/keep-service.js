@@ -5,6 +5,8 @@ export const keepService = {
     addToNotes,
     getNotes,
     getNoteById,
+    removeFromStorage,
+    updateInStorage,
     youtubeParser
 }
 
@@ -28,7 +30,37 @@ function addToNotes(newNote) {
 }
 
 function getNotes() {
-    return utilService.loadFromStorage(STORAGE_KEY);;
+    notes = utilService.loadFromStorage(STORAGE_KEY);
+
+    if (!notes || !notes.length) {
+        notes = [
+            {
+                id: utilService.makeId(),
+                type: 'note-img',
+                isPinned: false,
+                info: {title: 'BNA', txt: 'https://cdn.thenationroar.com/wp-content/uploads/2020/05/BNA-Episode-2-Release-Date-Preview-and-Spoilers-696x404-credit-pinterest.jpg'},
+                style: {}
+            },
+            
+            {
+                id: utilService.makeId(),
+                type: 'note-txt',
+                isPinned: false,
+                info: {title: 'The KKK', txt: 'Took my baby away'},
+                style: {}
+            },
+            
+            // {
+            //     id: utilService.makeId(),
+            //     type: 'note-video',
+            //     isPinned: false,
+            //     info: {title: 'Fiona!', txt: 'https://youtu.be/emXYPRlVBas'},
+            //     style: {}
+            // }
+        ];
+    }
+    utilService.storeToStorage(STORAGE_KEY, notes);
+    return notes;
 }
 
 function youtubeParser(url) {
@@ -42,19 +74,23 @@ function saveNotesToStorage() {
 }
 
 function getNoteById(noteId) {
-    const note = notes.find(note => note.id === noteId);
-    return  note;
+   return notes.find(note => note.id === noteId);
 }
 
 function findNoteIdx(noteId) {
-    return notes.findIndex(getNoteById(noteId));
+  let noteIdx = notes.findIndex(note => note.id === noteId);
+    return noteIdx;
+}
 
+function removeFromStorage(noteId) {
+    var idx = findNoteIdx(noteId);
+    notes.splice(idx, 1);
+    saveNotesToStorage();
 }
 
 function updateInStorage(noteId, editedNote) {
-    // var noteToUpdate = getNoteById(noteId);
-    // noteToUpdate = editedNote;
-    // let idx = findNoteIdx(noteId);
-    // notes.splice(idx, 1, noteToUpdate);
-    // saveNotesToStorage();
+    var noteToUpdate = getNoteById(noteId);
+    noteToUpdate.info = editedNote.info;
+    console.log(noteToUpdate);
+    saveNotesToStorage();
 }

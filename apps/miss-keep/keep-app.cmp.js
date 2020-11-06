@@ -10,7 +10,7 @@ export default {
     <section class="keep-app">
             <create-note :note="note" @sendInfo="saveInfo" @sendType="createNewNote" @sendNote="saveToNotes"></create-note>
         <div class="saved-notes">
-             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id" @sendInfo="saveInfo"></component>
+             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id" @sendInfo="saveInfo" @removeNote="removeFromList"></component>
         </div>
     </section>
     `,
@@ -23,13 +23,14 @@ export default {
     },
 
     methods: {
-        saveInfo(title, txt) {
+        saveInfo(title, txt, id) {
             if (!this.note) {
                 this.note = {info: {}}
             }
-
+            
             this.note.info.title = title;
             this.note.info.txt = txt;
+            keepService.updateInStorage(id, this.note);
             
         },
 
@@ -41,6 +42,11 @@ export default {
 
         createNewNote(noteType) {
             this.note = keepService.createNote(noteType);
+        },
+
+        removeFromList(noteId) {
+            keepService.removeFromStorage(noteId);
+            this.noteList = keepService.getNotes();
         }
     },
 

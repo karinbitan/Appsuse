@@ -6,7 +6,7 @@ export default {
     <section class="mail-details">
         <h2 class="subject">{{mail.subject}}</h2>
         <button class="delete-mail" @click="onRemoveMail(mail.id)"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
-        <button @click="starredMail" class="starred-mail"><img ref="star" src="apps/mister-mail/assest/img/icon/star.png" /></button>
+        <button class="starred-mail" @click="onStarredMail(mail.id)"><img :src="starUrl" /></button>
         <p>{{mail.from}} <span class="grey"> &lt;{{mail.from}}@mister-bit.com&gt;</span></p>
         <p>Sent at: {{mail.sentAt}}<p>
             <hr>
@@ -15,15 +15,17 @@ export default {
     `,
     data() {
         return {
-            mail: '',
-            starred: false
+            mail: {},
+            isStarred: false,
         }
     },
     created() {
         const id = this.$route.params.mailId;
         mailService.getMailById(id)
-            .then((mail) => this.mail = mail);
-        console.log('created')
+            .then((mail) => {
+                this.mail = mail
+                this.isStarred = mail.isStarred
+            });
     },
     methods: {
         onRemoveMail(mailId) {
@@ -32,9 +34,23 @@ export default {
             eventBus.$emit('show-msg', 'Mail deleted')
             this.$router.push('/mail')
         },
-        starredMail(){
-            var elStar = this.$ref.star;
-            elStar.src 
+        onStarredMail(mailId) {
+            this.isStarred = !this.isStarred;
+            mailService.starredMail(mailId, this.isStarred)
+            if (this.isStarred) {
+                eventBus.$emit('mail-starred');
+                eventBus.$emit('show-msg', 'Mail starred');
+            } else {
+                eventBus.$emit('mail-unstarred');
+                eventBus.$emit('show-msg', 'Mail unstarred');
+            }
+        }
+    },
+    computed: {
+        starUrl() {
+            var starIcon = (!this.isStarred) ? 'empty-star' : 'filled-star';
+            return 'apps/mister-mail/assest/img/icon/' + starIcon + '.png'
+
         }
     }
 }

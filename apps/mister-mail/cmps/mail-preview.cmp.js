@@ -7,6 +7,7 @@ export default {
     template: `
     <section class="mail-preview" @click="bookDetails('/mail/' +mail.id)">
     <ul class="flex space-between" :class="readUnRead" @click="markReadUnRead">
+        <li><img :src="starUrl" /></li>
         <li>Karin</li>
         <li>{{mail.subject}}</li>
         <li class="grey">{{mailText}}</li>
@@ -29,11 +30,14 @@ export default {
                 return mail.substring(0, 20) + '...';
             } else return mail;
         },
+        starUrl() {
+            var starIcon = (!this.mail.isStarred) ? 'empty-star' : 'filled-star';
+            return 'apps/mister-mail/assest/img/icon/' + starIcon + '.png'
+        }
     },
     methods: {
         bookDetails(mailId) {
             this.$router.push(`${mailId}`)
-            // eventBus.$emit('selectMail');
         },
         markReadUnRead() {
             mailService.markAsRead(this.mail.id)

@@ -10,7 +10,8 @@ export const mailService = {
     getMailById,
     removeMail,
     addMail,
-    markAsRead
+    markAsRead,
+    starredMail
 }
 
 
@@ -22,6 +23,7 @@ function createMail(subject, body) {
         from: 'Karin',
         to: 'Karin',
         isRead: false,
+        isStarred: false,
         sentAt: utilService.getTime()
     }
     return mail;
@@ -72,6 +74,16 @@ function markAsRead(mailId, mark = true){
     mails.map( mail => {
         if (mail.id != mailId) return mail;
         mail.isRead = mark;
+        return mail;
+    } )
+    utilService.storeToStorage(STORAGE_KEY, mails);
+}
+
+function starredMail(mailId, starred){
+    var mails = utilService.loadFromStorage(STORAGE_KEY);
+    mails.map( mail => {
+        if (mail.id != mailId) return mail;
+        mail.isStarred = starred;
         return mail;
     } )
     utilService.storeToStorage(STORAGE_KEY, mails);

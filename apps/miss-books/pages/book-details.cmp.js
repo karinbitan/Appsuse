@@ -27,13 +27,12 @@ export default {
 
     data() {
         return {
-            book: {}
+            book: null
         }
     },
     created() {
         const id = this.$route.params.bookId;
         bookService.getBookById(id).then(book => this.book = book);
-            console.log(this.book)
     },
 
     methods: {

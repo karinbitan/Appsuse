@@ -457,14 +457,14 @@ export const bookService = {
 function getBooks() {
   var books = utilService.loadFromStorage(BOOKS_KEY);
   if (!books) {
-    books = gBooks;
+    books = gBooks; //if no books on local storage, we set deafult books
     saveBooksToStorage(books)
   }
   return Promise.resolve(books);
 }
 
 function getBookById(bookId) {
-  return Promise.resolve(gBooks.find((book) => {
+return getBooks().then(books => books.find((book) => {
     return book.id === bookId;
   }))
 }

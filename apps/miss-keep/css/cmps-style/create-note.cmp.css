@@ -26,3 +26,14 @@ textarea {
     border: 1px solid #DEBE9B;
     border-radius: 0.5rem;
 }
+
+.create-note label {
+    font-size: 2.2rem;
+    display: inline-block;
+    color: #6c757d;
+    margin: 1rem;
+}
+
+label .checked  {
+    color: #A44A3F;
+}

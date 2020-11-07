@@ -3,18 +3,20 @@ export default {
      <form @submit.prevent="saveNote" class="create-note flex-column align-center">
         <input type="text" name="title" placeholder="Add Title" v-model="title" @blur="reportVal">
         <textarea name="txt" cols="50" v-model="txt" @blur="reportVal" :placeholder="placeholderTxt"></textarea>
-        <label for="choose-txt">txt
-            <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true">
+        <div class="choose-type">
+        <label for="choose-txt"><i class="fas fa-font"></i>
+            <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true" hidden>
         </label>
-        <label for="choose-img">img
-            <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType">
+        <label for="choose-img"><i class="fas fa-image"></i>
+            <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType" hidden>
         </label>
-        <label for="choose-todo">todo
-            <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType">
+        <label for="choose-todo"><i class="fas fa-list"></i>
+            <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType" hidden>
         </label>
-        <label for="choose-video">video
-            <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType">
+        <label for="choose-video"><i class="fab fa-youtube"></i>
+            <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType" hidden>
         </label>
+        </div>
         <button>Add Note</button>
      </form>
     `,

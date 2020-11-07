@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-input[type="text"] {
+.book-filter input[type="text"] {
     font-size: 1.25rem;
     border: 2px solid #5E6472;
     color: #5E6472;

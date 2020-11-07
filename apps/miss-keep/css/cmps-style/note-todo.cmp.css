@@ -36,3 +36,7 @@
 .note-todo .li-input:focus {
     outline: 2px solid #ff5d8f;
 }
+
+.done {
+    text-decoration: line-through;
+}

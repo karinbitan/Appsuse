@@ -1,9 +1,28 @@
 .book-details {
     flex-direction: column;
+    background-color: #F6F4D2;
 }
+
+/* .book-details h1{
+    margin: 0;
+} */
 
 .book-details h2 {
     font-size: 3rem;
     color: #5E6472;
     text-transform: capitalize;
+    margin: 0;
+}
+
+.book-details h4{
+    margin: 0;
+}
+
+.sale-img{
+    position: absolute;
+    right: 10px;
+}
+
+.book-img{
+    width: 200px;
 }

@@ -1,5 +1,5 @@
 .mail-compose {
-    width: 50%;
+    width: 800px;
     border: 1px solid #A44A3F;
     position: relative;
 }
@@ -39,8 +39,22 @@
     left: 5px;
 }
 
-.new-message .delete-draft {
+.delete-draft {
     position: absolute;
     right: 5px;
     bottom: 10px;
+}
+
+@media screen and (max-width: 635px) {
+    .mail-compose{
+        width: 400px;
+    }
+    .new-message .send-mail {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .delete-draft {
+        right: 0;
+        bottom: 0;    }
 }

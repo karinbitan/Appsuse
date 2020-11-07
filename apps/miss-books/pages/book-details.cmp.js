@@ -6,12 +6,12 @@ import reviewList from './../cmps/review-list.cmp.js';
 export default {
     template: `
     <section v-if="book" class="book-details flex align-center">
+        <img src="apps/miss-books/assest/img/onSale.png" v-if="isOnSale" height="200px" class="sale-img">
         <button @click="closeDetails">X</button>
         <h2 class="book-title">{{book.title}}</h2>
-        <h3 class="book-subtitle">{{book.subtitle}}</h3>
-        <img src="apps/miss-books/assest/img/onSale.png" v-if="isOnSale" height="200px" class="sale-img">
+        <h3 class="book-subtitle">Subtitle: {{book.subtitle}}</h3>
         <h4>Written by: {{authors}}</h4>
-        <img :src="book.thumbnail" />
+        <img class="book-img" :src="book.thumbnail" />
         <h4>Subjects: {{categories}}</h4>
         <h4 :class="priceClass">{{book.listPrice.amount}} {{currencyIcon}}</h4>
         <h4>Language: {{book.language}}</h4>

@@ -5,7 +5,7 @@ export default {
     //props: ['bookId', 'reviews'],
     props: ['bookId'],
     template: `
-    <section class="review-class">
+    <section class="reviews-container">
         <h3>Reviews</h3>
         <div class="review" v-for="(review, idx) in reviews" key="">
             <button @click="removeReview(idx)">X</button>

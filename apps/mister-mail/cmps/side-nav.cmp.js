@@ -4,8 +4,12 @@ import starredStatus from './starred-status.cmp.js';
 export default {
     template: `
         <nav class="side-nav">
-        <div class="compose-mail-btn" @click="composeMail">Compose <img src="apps/mister-mail/assest/img/icon/add.png" /></div>
-            <ul class="flex-column space-evenly">
+        <a href="javascript:void(0);" class="icon" @click="myFunction">
+    <i class="fa fa-bars"></i>
+  </a>
+  <ul class="topnav" id="side-nav-list">
+    <li class="compose-mail-btn" @click="composeMail">Compose 
+        <img src="apps/mister-mail/assest/img/icon/add.png" /></li>
                 <li @click="backToMain">Inbox <img src="apps/mister-mail/assest/img/icon/mail-icon.png" />
                 <mail-status /></li>
                 <li @click="starredMails">Starred <img src="apps/mister-mail/assest/img/icon/filled-star.png" />
@@ -22,8 +26,16 @@ export default {
         backToMain() {
             this.$router.push('/mail');
         },
-        starredMails(){
+        starredMails() {
             this.$router.push('/mail/starred');
+        },
+        myFunction() {
+            var x = document.getElementById("side-nav-list");
+            if (x.className === "topnav") {
+              x.className += " responsive";
+            } else {
+              x.className = "topnav";
+            }
         }
     },
     components: {

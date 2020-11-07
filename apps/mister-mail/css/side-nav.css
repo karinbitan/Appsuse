@@ -1,27 +1,70 @@
 .side-nav {
-    width: 300px;
+    margin-right: 100px;
 }
 
 .compose-mail-btn {
     cursor: pointer;
-    margin-left: 40px;
     border: 1px solid grey;
     border-radius: 14px;
     width: 120px;
     padding: 10px;
 }
 
-.side-nav ul {
+.topnav {
     list-style-type: none;
     height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.side-nav ul li{
+.topnav li {
     cursor: pointer;
 }
 
-.side-nav img{
+.side-nav img {
     width: 25px;
     height: 25px;
 }
 
+.side-nav a {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .side-nav {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 635px) {
+    .side-nav a {
+        display: block;
+        color: black;
+        text-align: center;
+        font-size: large;
+
+    }
+    .topnav {
+        display: none;
+    }
+    .compose-mail-btn {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    .topnav img {
+        width: 10px;
+        height: 10px;
+    }
+    @media screen and (max-width: 635px) {
+        .topnav.responsive {
+            display: block;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}

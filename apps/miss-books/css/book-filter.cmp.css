@@ -16,11 +16,11 @@ input[type="text"] {
 }
 
 .book-filter button {
-    color: #5E6472;
+    color: #582720;
     font-size: 1.2rem;
-    border: 2px solid #FFA69E;
+    border: 2px solid #F19C79;
     border-radius: 1.5rem;
-    background-color: #FFA69E;
+    background-color: #F19C79;
     padding: 0.5rem 1rem;
     margin-inline-start: 0.5rem;
 

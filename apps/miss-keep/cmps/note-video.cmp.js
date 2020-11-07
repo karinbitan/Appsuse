@@ -6,7 +6,6 @@ export default {
     <section class="note-video" v-bind:style="{backgroundColor: this.note.style.background}">
         <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <span class="edit-icon"><i class="fas fa-edit"></i></span>
         <iframe width="560" height="315" :src="urlForEmbed" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc"/>
     </section>

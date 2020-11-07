@@ -1,0 +1,22 @@
+
+.edit-menu {
+    opacity: 0;
+    transform: translateY(3%);
+    transition: all ease-in-out 0.5s;
+}
+
+section:hover > .edit-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.keep-app .edit-menu button {
+    background-color: transparent;
+    border: transparent;
+
+}
+
+.edit-menu input[type=color] {
+    opacity: 0;
+    width: 0;
+}

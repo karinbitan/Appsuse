@@ -4,7 +4,7 @@ export default {
             <button class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></button>
             <button class="remove-note" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
             <button>
-            <label for="change-bgc"><i class="fas fa-palette"></i>
+            <label for="change-bgc" class="bgc"><i class="fas fa-palette"></i>
             <input type="color" id="change-bgc" value="#F6F4D2" @change="setBgc">
             </label>
             </button>

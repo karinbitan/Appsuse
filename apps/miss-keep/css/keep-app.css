@@ -3,6 +3,7 @@
 @import "./cmps-style/note-img.cmp.css";
 @import "./cmps-style/note-video.cmp.css";
 @import "./cmps-style/note-todo.cmp.css";
+@import "./cmps-style/note-edit.cmp.css";
 
 .keep-app {
     background-color: #F6F4D2;

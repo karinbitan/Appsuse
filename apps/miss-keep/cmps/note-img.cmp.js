@@ -5,7 +5,6 @@ export default {
     <section class="note-img" v-bind:style="{backgroundColor: this.note.style.background}">
         <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <span class="edit-icon"><i class="fas fa-edit"></i></span>
         <img :src="txt" />
         <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc"/>
     </section>

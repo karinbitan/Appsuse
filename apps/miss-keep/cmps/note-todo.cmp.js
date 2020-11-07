@@ -6,7 +6,6 @@ export default {
     <section class="note-todo" v-bind:style="{backgroundColor: this.note.style.background}">
         <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <span class="edit-icon hide"><i class="fas fa-edit"></i></span>
         <ul class="to-do-list">
             <li v-for="toDo in txt" :key="toDo.toDoId">
                 <input type="checkbox" name="check-is-done" :id="toDo.toDoId" @change="toggleIsDone">

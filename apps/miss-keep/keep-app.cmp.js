@@ -11,7 +11,7 @@ export default {
     <section class="keep-app">
             <create-note :note="note" @sendInfo="saveInfo" @sendType="createNewNote" @sendNote="saveToNotes"></create-note>
         <div class="saved-notes">
-             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id" @sendInfo="saveInfo" @removeNote="removeFromList"></component>
+             <component v-bind:is="note.type" :note="note" v-for="note in noteList" :key="note.id" @sendInfo="saveInfo" @removeNote="removeFromList" @notePinned="unshiftNote" @noteUnpinned="removePin" @bgcChosen="updateBgc"></component>
         </div>
     </section>
     `,
@@ -48,6 +48,30 @@ export default {
         removeFromList(noteId) {
             keepService.removeFromStorage(noteId);
             this.noteList = keepService.getNotes();
+        },
+
+        unshiftNote(noteId) {
+            const idx = this.noteList.findIndex(note => note.id === noteId);
+            let note = this.noteList[idx];
+            if (!note.isPinned) {
+                keepService.copyNote(noteId);
+                this.noteList = keepService.getNotes();
+            } else this.removePin(noteId);
+        },
+
+        removePin(noteId) {
+            const idx = this.noteList.findIndex(note => note.id === noteId);
+            let note = this.noteList[idx];
+            note.isPinned = false;
+            keepService.updateInStorage(noteId, note);
+            
+        },
+
+        updateBgc(noteId, val) {
+            const idx = this.noteList.findIndex(note => note.id === noteId);
+            let note = this.noteList[idx];
+            note.style.background = val;
+            keepService.updateInStorage(noteId, note);
         }
     },
 

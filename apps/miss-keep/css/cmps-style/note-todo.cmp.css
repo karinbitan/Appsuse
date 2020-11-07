@@ -40,3 +40,19 @@
 .done {
     text-decoration: line-through;
 }
+
+.li-input:hover + .hide, [name=title]:hover + .hide {
+    opacity: 1;
+}
+
+.edit-icon {
+    color: #8a777d;
+}
+
+.keep-app .note-todo .remove-todo {
+    font-size: 1.6rem;
+    color: #7c2641;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}

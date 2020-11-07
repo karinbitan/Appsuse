@@ -8,7 +8,7 @@ input[type=range] {
     outline: none;
   }
   input[type=range]::-webkit-slider-runnable-track {
-    background: #5E6472;
+    background: #fff;
     border: 0.2px solid #010101;
     border-radius: 1.3px;
     width: 100%;
@@ -19,17 +19,17 @@ input[type=range] {
     margin-top: -7.5px;
     width: 26px;
     height: 26px;
-    background: #ffa69e;
-    border: 1.8px solid #c0807a;
+    background: #A44A3F;
+    border: 1.8px solid #db7e72;
     border-radius: 15px;
     cursor: pointer;
     -webkit-appearance: none;
   }
   input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #5E6472;
+    background: #fff;
   }
   input[type=range]::-moz-range-track {
-    background: #5E6472;
+    background: #fff;
     border: 0.2px solid #010101;
     border-radius: 1.3px;
     width: 100%;
@@ -39,8 +39,8 @@ input[type=range] {
   input[type=range]::-moz-range-thumb {
     width: 26px;
     height: 26px;
-    background: #ffa69e;
-    border: 1.8px solid #c0807a;
+    background: #A44A3F;
+    border: 1.8px solid #db7e72;
     border-radius: 15px;
     cursor: pointer;
   }
@@ -54,30 +54,30 @@ input[type=range] {
     cursor: pointer;
   }
   input[type=range]::-ms-fill-lower {
-    background: #5E6472;
+    background: #fff;
     border: 0.2px solid #010101;
     border-radius: 2.6px;
   }
   input[type=range]::-ms-fill-upper {
-    background: #5E6472;
+    background: #fff;
     border: 0.2px solid #010101;
     border-radius: 2.6px;
   }
   input[type=range]::-ms-thumb {
     width: 26px;
     height: 26px;
-    background: #ffa69e;
-    border: 1.8px solid #c0807a;
+    background: #A44A3F;
+    border: 1.8px solid #db7e72;
     border-radius: 15px;
     cursor: pointer;
     margin-top: 0px;
     /*Needed to keep the Edge thumb centred*/
   }
   input[type=range]:focus::-ms-fill-lower {
-    background: #5E6472;
+    background: #fff;
   }
   input[type=range]:focus::-ms-fill-upper {
-    background: #5E6472;
+    background: #fff;
   }
   @supports (-ms-ime-align:auto) {
     input[type=range] {

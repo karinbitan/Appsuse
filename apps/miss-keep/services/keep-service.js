@@ -7,6 +7,7 @@ export const keepService = {
     getNoteById,
     removeFromStorage,
     updateInStorage,
+    copyNote,
     youtubeParser
 }
 
@@ -50,13 +51,21 @@ function getNotes() {
                 style: {}
             },
             
-            // {
-            //     id: utilService.makeId(),
-            //     type: 'note-video',
-            //     isPinned: false,
-            //     info: {title: 'Fiona!', txt: 'https://youtu.be/emXYPRlVBas'},
-            //     style: {}
-            // }
+            {
+                id: utilService.makeId(),
+                type: 'note-video',
+                isPinned: false,
+                info: {title: 'Fiona!', txt: 'https://youtu.be/emXYPRlVBas'},
+                style: {}
+            },
+
+            {
+                id: utilService.makeId(),
+                type: 'note-todo',
+                isPinned: false,
+                info: {title: 'My To Dos', txt: 'do,did,done!'},
+                style: {}
+            },
         ];
     }
     utilService.storeToStorage(STORAGE_KEY, notes);
@@ -78,7 +87,7 @@ function getNoteById(noteId) {
 }
 
 function findNoteIdx(noteId) {
-  let noteIdx = notes.findIndex(note => note.id === noteId);
+  const noteIdx = notes.findIndex(note => note.id === noteId);
     return noteIdx;
 }
 
@@ -91,5 +100,14 @@ function removeFromStorage(noteId) {
 function updateInStorage(noteId, editedNote) {
     var noteToUpdate = getNoteById(noteId);
     noteToUpdate.info = editedNote.info;
+    saveNotesToStorage();
+}
+
+function copyNote(noteId) {
+    const idx = findNoteIdx(noteId);
+    let noteCopy = JSON.parse(JSON.stringify(notes[idx]));
+    noteCopy.isPinned = true;
+    notes.splice(idx, 1);
+    addToNotes(noteCopy);
     saveNotesToStorage();
 }

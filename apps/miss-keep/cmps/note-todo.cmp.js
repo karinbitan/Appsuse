@@ -1,18 +1,20 @@
 import {utilService} from '../../../services/util-service.js';
+import noteEdit from './note-edit-menu.cmp.js';
 
 export default {
     template: `
-    <section class="note-todo">
+    <section class="note-todo" v-bind:style="{backgroundColor: this.note.style.background}">
+        <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
         <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+        <span class="edit-icon hide"><i class="fas fa-edit"></i></span>
         <ul class="to-do-list">
             <li v-for="toDo in txt" :key="toDo.toDoId">
                 <input type="checkbox" name="check-is-done" :id="toDo.toDoId" @change="toggleIsDone">
                 <input type="text" v-model="toDo.toDoTxt" class="li-input" @change="reportVal" v-bind:class="{done: toDo.isDone}">
-                <button class="remove-todo" @click="removeTodo" :id="toDo.toDoId"><i class="fas fa-trash-alt"></i></button>
+                <button class="remove-todo hide" @click="removeTodo" :id="toDo.toDoId"><i class="fas fa-trash-alt"></i></button>
             </li>
         </ul>
-        <button class="remove-note" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
+        <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc"/>
         
     </section>
     `,
@@ -49,6 +51,18 @@ export default {
                 let idx = this.txt.findIndex(toDo => toDo.toDoId === id);
                 this.txt.splice(idx, 1);
             }
+        },
+
+        pinNote() {
+            this.$emit('notePinned', this.note.id);
+        },
+
+        unpinNote() {
+            this.$emit('noteUnpinned', this.note.id);
+        },
+
+        setBgc(id, val) {
+            this.$emit('bgcChosen', id, val);
         }
     },
 
@@ -64,5 +78,9 @@ export default {
 
     created() {
         this.createToDoList;
+    },
+
+    components: {
+        noteEdit
     }
 }

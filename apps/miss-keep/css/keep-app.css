@@ -34,3 +34,10 @@
 .keep-app button:focus {
     outline: 2px solid #DEBE9B;
 }
+
+/* Utils */
+
+.hide {
+    opacity: 0;
+    transition: all ease-in-out 0.25s;
+}

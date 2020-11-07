@@ -1,0 +1,38 @@
+.note-todo {
+    background-color: #fadde1;
+    max-width: 45vw;
+    border: 2px solid #7c2641;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.note-todo input {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 2rem;
+    color: #7c2641;
+    font-weight: 700;
+    text-align: center;
+}
+
+.note-todo input:hover, .note-todo input:focus {
+    border-bottom: 2px solid #7c2641;
+}
+
+.note-todo ul {
+    list-style: none;
+}
+
+.note-todo .li-input {
+    background-color: transparent;
+    border: transparent;
+    margin: 1rem;
+    font-size: 1.6rem;
+    max-width: 40vw;
+    text-align: start;
+}
+
+.note-todo .li-input:focus {
+    outline: 2px solid #ff5d8f;
+}

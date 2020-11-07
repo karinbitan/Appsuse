@@ -91,6 +91,5 @@ function removeFromStorage(noteId) {
 function updateInStorage(noteId, editedNote) {
     var noteToUpdate = getNoteById(noteId);
     noteToUpdate.info = editedNote.info;
-    console.log(noteToUpdate);
     saveNotesToStorage();
 }

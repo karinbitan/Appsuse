@@ -4,6 +4,7 @@ import createNote from './cmps/create-note.cmp.js';
 import noteTxt from './cmps/note-txt.cmp.js';
 import noteImg from './cmps/note-img.cmp.js';
 import noteVideo from './cmps/note-video.cmp.js';
+import noteTodo from './cmps/note-todo.cmp.js';
 
 export default {
     template: `
@@ -58,6 +59,7 @@ export default {
         createNote,
         noteTxt,
         noteImg,
-        noteVideo
+        noteVideo,
+        noteTodo
     }
 }

@@ -9,9 +9,9 @@ export default {
         <label for="choose-img">img
             <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType">
         </label>
-        <!-- <label for="choose-todo">todo
+        <label for="choose-todo">todo
             <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType">
-        </label> -->
+        </label>
         <label for="choose-video">video
             <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType">
         </label>
@@ -25,6 +25,7 @@ export default {
         return {
             title: this.note ? this.note.info.title : '',
             txt: this.note ? this.note.info.txt : '',
+            type: this.note ? this.note.type : ''
         }
     },
     

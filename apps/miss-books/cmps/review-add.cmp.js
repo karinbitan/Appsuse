@@ -1,14 +1,15 @@
-import { bookService} from './../services/book-service.js';
-import { eventBus} from './../../../services/event-bus-service.js';
+import { bookService } from './../services/book-service.js';
+import { eventBus } from './../../../services/event-bus-service.js';
 import reviewList from './review-list.cmp.js';
 
 export default {
     props: ['bookId'],
     template: `
 <section class="review-book">
+    <h2>Reviews</h2>
     <form @submit.prevent="onAddReview">
         <label>Full Name:<input type="text" value="Books Reader"
-        placeholder="Write your fullname.." v-model="review.fullName" ref="fullName" /></label>
+        placeholder="Write your full name.." v-model="review.fullName" ref="fullName" /></label>
         <br />
         <label for="rate">Choose rate:</label>
         <select id="rate" name="rate" v-model="review.rate" >
@@ -19,8 +20,9 @@ export default {
             <option>5</option>
         </select>
         <br />
-        <label for="review" name="review"></label>
+        <label for="review" name="review">Write your review here:</label> <br />
         <textarea id="review" name="review" v-model="review.review" ></textarea>
+
         <br />
         <button>Send review</button>
     </form>

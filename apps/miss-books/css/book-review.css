@@ -1,4 +1,31 @@
-.reviews-container{
+.reviews-container {
     text-align: center;
     background-color: #F6F4D2;
+}
+
+.reviews-container h2 {
+    color: #582720;
+}
+
+.review {
+    position: relative;
+}
+
+.delete-review{
+position: absolute;
+right: 1px;
+}
+
+/* Add review */
+
+.review-book {
+    text-align: center;
+}
+
+.review-book input[type="text"] {
+    padding: 10px;
+}
+
+.review-book textarea {
+    resize: none;
 }

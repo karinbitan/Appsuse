@@ -13,7 +13,7 @@ export default {
                 </div>
                 <button class="send-mail">Send</button>
             </form>
-            <button class="delete-draft"><img src="apps/mister-mail/assest/img/icon/garbage.png" /></button>
+            <button class="delete-draft"><img src="apps/mister-mail/assets/img/icon/garbage.png" /></button>
         </section>
     `,
     data() {

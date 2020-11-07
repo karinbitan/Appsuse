@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'mails';
+const STORAGE_KEY = 'larin-mails';
 const gMails = createMails();
 
 import { utilService } from './../../../services/util-service.js'

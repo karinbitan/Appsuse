@@ -1,6 +1,6 @@
 .book-preview {
     background-color: #F6F4D2; 
-    color: #5E6472;
+    color: #582720;
     text-align: center;
     font-size: 1.25rem;
     padding: 0.5rem 0.5rem;
@@ -11,4 +11,8 @@
 
 .book-preview h3 {
     text-transform: capitalize;
+}
+
+hr{
+    width: 100%;
 }

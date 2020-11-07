@@ -6,13 +6,13 @@ export default {
     props: ['bookId'],
     template: `
     <section class="reviews-container">
-        <h3>Reviews</h3>
         <div class="review" v-for="(review, idx) in reviews" key="">
-            <button @click="removeReview(idx)">X</button>
-            <h4>{{review.fullName}}</h4>
-            <p><span>Rate: {{review.rate}}</span> <br />
+            <button class="delete-review" @click="removeReview(idx)">X</button>
+            <p>Full name: {{review.fullName}} <br />
+                Rate: {{review.rate}}<br />
                 Review: {{review.review}}
-        </p>
+            </p>
+            <hr />
         </div>
     </section>
     `,

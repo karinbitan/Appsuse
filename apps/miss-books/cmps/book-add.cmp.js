@@ -4,10 +4,9 @@ import bookAddList from './book-add-list.cmp.js';
 export default {
     template: `
     <section class="add-book-container">
-    <label>Search for a book: 
         <input type="search" placeholder="Search for a book" v-model="bookText" />
-    </label>
     <book-add-list v-if="bookText" :books="filteredBooks" />
+        <button type="submit"><i class="fa fa-search"></i></button> 
     </section>
     `,
     data() {
@@ -16,14 +15,6 @@ export default {
             bookText: '',
 
         }
-    },
-    methods: {
-        // findBook(input) {
-        //     console.log(input);
-        //     return this.books.filter((book) => {
-        //     return book.volumeInfo.title.toLowerCase().include(this.bookText.toLowerCase())
-        //     })
-        // }
     },
     created() {
         bookApi.getBooksFromApi()

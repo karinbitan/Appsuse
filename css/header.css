@@ -41,3 +41,10 @@
     content: '|';
     margin-inline-start: 0.75rem;
 } */
+
+@media screen and (max-width: 495px){
+    .main-header{
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -9,20 +9,20 @@
 
 .book-details h2 {
     font-size: 3rem;
-    color: #5E6472;
+    color: #582720;
     text-transform: capitalize;
     margin: 0;
 }
 
-.book-details h4{
+.book-details h4 {
     margin: 0;
 }
 
-.sale-img{
+.sale-img {
     position: absolute;
     right: 10px;
 }
 
-.book-img{
+.book-img {
     width: 200px;
 }

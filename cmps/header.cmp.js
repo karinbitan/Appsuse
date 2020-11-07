@@ -1,7 +1,7 @@
 
 export default {
     template: `
-    <header class="flex space-between">
+    <header class="main-header flex space-between">
         <div class="logo" @click="goHome">
             <h1>Appsus <span><i class="fas fa-horse"></i></span></h1>
         </div>

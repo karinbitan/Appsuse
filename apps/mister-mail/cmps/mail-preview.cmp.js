@@ -31,7 +31,7 @@ export default {
         },
         starUrl() {
             var starIcon = (!this.mail.isStarred) ? 'empty-star' : 'filled-star';
-            return 'apps/mister-mail/assest/img/icon/' + starIcon + '.png'
+            return 'apps/mister-mail/assets/img/icon/' + starIcon + '.png'
         }
     },
     methods: {

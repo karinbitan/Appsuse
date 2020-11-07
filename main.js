@@ -8,12 +8,12 @@ const options = {
     router: ourRouter,
     template: `
     <section>
-        <main-header class="main-header"></main-header>
+        <main-header></main-header>
         <user-msg />
         <main>
             <router-view></router-view>
         </main>
-        <main-footer class="main-footer"></main-footer>
+        <main-footer></main-footer>
     </section> 
     `,
     components: {

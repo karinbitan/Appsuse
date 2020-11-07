@@ -5,15 +5,15 @@ export default {
     template: `
     <section class="note-todo" v-bind:style="{backgroundColor: this.note.style.background}">
         <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
-        <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <ul class="to-do-list">
+        <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal" class="note-title">
+        <ul class="to-do-list" class="note-content">
             <li v-for="toDo in txt" :key="toDo.toDoId">
                 <input type="checkbox" name="check-is-done" :id="toDo.toDoId" @change="toggleIsDone">
                 <input type="text" v-model="toDo.toDoTxt" class="li-input" @change="reportVal" v-bind:class="{done: toDo.isDone}">
                 <button class="remove-todo hide" @click="removeTodo" :id="toDo.toDoId"><i class="fas fa-trash-alt"></i></button>
             </li>
         </ul>
-        <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc"/>
+        <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc" class="note-footer"/>
         
     </section>
     `,

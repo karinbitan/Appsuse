@@ -3,7 +3,7 @@ export default {
     template: `
     <header class="main-header flex space-between">
         <div class="logo" @click="goHome">
-            <h1>Appsus <span><i class="fas fa-horse"></i></span></h1>
+            <h1><span class="logo-txt">Appsus </span><span><i class="fas fa-horse"></i></span></h1>
         </div>
         <nav class="flex align-center space-between">
             <router-link to="/mail" exact>Mail</router-link>

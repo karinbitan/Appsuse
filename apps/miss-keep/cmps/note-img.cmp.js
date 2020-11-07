@@ -4,9 +4,9 @@ export default {
     template: `
     <section class="note-img" v-bind:style="{backgroundColor: this.note.style.background}">
         <button class="unpin" @click="unpinNote" v-show="this.note.isPinned"><i class="fas fa-thumbtack"></i></button>
-        <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal">
-        <img :src="txt" />
-        <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc"/>
+        <input type="text" name="title" placeholder="Title" v-model="title" @change="reportVal" class="note-title">
+        <img :src="txt" class="note-content" />
+        <noteEdit :noteId="this.note.id" @removeNote="removeNote" @notePinned="pinNote" @noteUnpinned="unpinNote" @bgcChosen="setBgc" class="note-footer" />
     </section>
     `,
 

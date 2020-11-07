@@ -33,14 +33,11 @@
     
 }
 
-/* .main-header a:not(:last-child) {
-    margin-inline-end: 0.75rem;
-} */
-/* 
-.main-header a:not(:last-child)::after {
-    content: '|';
-    margin-inline-start: 0.75rem;
-} */
+@media screen and (max-width: 640px) {
+    .logo-txt {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 495px){
     .main-header{

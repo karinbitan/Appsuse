@@ -1,9 +1,8 @@
 .note-txt {
     background-color: #CBDFBD;
-    max-width: 45vw;
     border: 2px solid #4A5922;
     border-radius: 0.5rem;
-    margin: 1rem;
+    padding-bottom: 1rem;
 }
 
 .note-txt input {
@@ -25,7 +24,7 @@
     border: transparent;
     margin: 1rem;
     font-size: 1.6rem;
-    max-width: 40vw;
+    width: 90%;
 }
 
 .note-txt textarea:hover {

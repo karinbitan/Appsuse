@@ -1,6 +1,6 @@
 export default {
     template: `
-        <section class="edit-menu">
+        <div class="edit-menu">
             <button class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></button>
             <button class="remove-note" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
             <button>
@@ -8,7 +8,7 @@ export default {
             <input type="color" id="change-bgc" value="#F6F4D2" @change="setBgc">
             </label>
             </button>
-        </section>
+        </div>
     `,
 
     props: ['noteId'],

@@ -3,19 +3,23 @@ export default {
      <form @submit.prevent="saveNote" class="create-note flex-column align-center">
         <input type="text" name="title" placeholder="Add Title" v-model="title" @blur="reportVal">
         <textarea name="txt" cols="50" v-model="txt" @blur="reportVal" :placeholder="placeholderTxt"></textarea>
-        <div class="choose-type">
-        <label for="choose-txt"><i class="fas fa-font"></i>
-            <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true" hidden>
-        </label>
-        <label for="choose-img"><i class="fas fa-image"></i>
-            <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType" hidden>
-        </label>
-        <label for="choose-todo"><i class="fas fa-list"></i>
-            <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType" hidden>
-        </label>
-        <label for="choose-video"><i class="fab fa-youtube"></i>
-            <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType" hidden>
-        </label>
+        <div class="choose-type flex">
+            <div>
+                <input type="radio" name="choose-type" value="txt" id="choose-txt" @click="newNoteType" checked="true" hidden>
+                <label for="choose-txt"><i class="fas fa-font"></i></label>
+            </div>
+            <div>
+                <input type="radio" name="choose-type" value="img" id="choose-img" @click="newNoteType" hidden>
+                <label for="choose-img"><i class="fas fa-image"></i></label>
+            </div>
+            <div>
+                <input type="radio" name="choose-type" value="todo" id="choose-todo" @click="newNoteType" hidden>
+                <label for="choose-todo"><i class="fas fa-list"></i></label>
+            </div>
+            <div>
+                <input type="radio" name="choose-type" value="video" id="choose-video" @click="newNoteType" hidden>
+                <label for="choose-video"><i class="fab fa-youtube"></i></label>
+            </div>
         </div>
         <button>Add Note</button>
      </form>

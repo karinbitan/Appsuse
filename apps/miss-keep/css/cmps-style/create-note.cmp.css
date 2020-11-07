@@ -34,6 +34,6 @@ textarea {
     margin: 1rem;
 }
 
-label .checked  {
+input[type=radio]:checked + label {
     color: #A44A3F;
 }

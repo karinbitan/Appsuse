@@ -10,6 +10,16 @@
     min-height: 80vh;
     text-align: center;
     padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+.keep-app .saved-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr) );
+    gap: 3rem;
+    margin: 0 auto;
+    max-width: 72rem;
 }
 
 .keep-app button {
@@ -36,9 +46,54 @@
     outline: 2px solid #DEBE9B;
 }
 
+.note-title {
+    height: 3rem;
+}
+
+.note-content {
+    min-height: 20rem;
+}
+
+.note-footer {
+    height: 3rem;
+}
+
 /* Utils */
 
 .hide {
     opacity: 0;
     transition: all ease-in-out 0.25s;
+}
+
+button.unpin {
+    background-color: transparent;
+    border: none;
+}
+
+@media screen and (max-width: 1190px) {
+    .keep-app .saved-notes {
+        max-width: 65rem;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
+    }
+}
+
+@media screen and (max-width: 1055px) {
+    .keep-app .saved-notes {
+        max-width: 55rem;
+        
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .keep-app .saved-notes {
+        max-width: 40rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .keep-app .saved-notes {
+        max-width: 30rem;
+    }
 }

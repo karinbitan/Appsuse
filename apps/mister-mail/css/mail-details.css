@@ -1,23 +1,29 @@
-.mail-details{
+.mail-details {
     border: 1px solid #A44A3F;
-    width: 50%;
+    width: 800px;
     padding: 10px;
 }
 
-.mail-details img{
+.mail-details img {
     width: 25px;
     height: 25px;
 }
 
-.mail-details .subject{
+.mail-details .subject {
     display: inline;
 }
 
-.mail-details .delete-mail{
+.mail-details .delete-mail {
     float: right;
     margin-left: 5px;
 }
 
 .starred-mail {
     float: right;
+}
+
+@media screen and (max-width: 635px) {
+    .mail-details {
+        width: 400px;
+    }
 }

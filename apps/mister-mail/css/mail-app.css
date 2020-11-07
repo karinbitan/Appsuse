@@ -5,3 +5,23 @@
 @import './mail-filter.css';
 @import './mail-details.css';
 @import './mail-status.css';
+.mail-app {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.mail-container {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .mail-app {
+        max-width: 686px;
+    }
+}
+
+@media screen and (max-width: 635px){
+    .mail-app {
+        max-width: 500px;
+    }
+}
+

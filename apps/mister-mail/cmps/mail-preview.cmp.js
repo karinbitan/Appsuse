@@ -1,4 +1,3 @@
-// import { mailService } from "../services/mail-service";
 import { eventBus } from "../../../services/event-bus-service.js";
 import { mailService } from "../services/mail-service.js";
 
@@ -7,11 +6,11 @@ export default {
     template: `
     <section class="mail-preview" @click="mailDetails('/mail/' +mail.id)">
     <ul class="flex space-between" :class="readUnRead" @click="markReadUnRead">
-        <li><img :src="starUrl" /></li>
+        <li><button class="starred-mail-btn" @click.stop="onStarredMail(mail.id)"><img :src="starUrl" /></button></li>
         <li class="from">Karin</li>
         <li class="subject">{{mail.subject}}</li>
         <li class="mail-message grey">{{mailText}}</li>
-        <li>{{mail.sentAt}}</li>
+        <li class="sent-at">{{mail.sentAt}}</li>
     </ul>
     </section>
     `,
@@ -41,8 +40,19 @@ export default {
         },
         markReadUnRead() {
             mailService.markAsRead(this.mail.id);
-            eventBus.$emit('mail-readed');
-            
+            eventBus.$emit('mail-readed');   
+        },
+        onStarredMail(mailId) {
+            this.mail.isStarred = !this.mail.isStarred;
+            mailService.starredMail(mailId, this.mail.isStarred)
+            if (this.mail.isStarred) {
+                eventBus.$emit('mail-starred');
+                eventBus.$emit('show-msg', 'Mail starred');
+
+            } else {
+                eventBus.$emit('mail-unstarred');
+                eventBus.$emit('show-msg', 'Mail unstarred');
+            }
         }
     },
 }

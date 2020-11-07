@@ -1,6 +1,7 @@
 .mail-filter {
     align-self: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .mail-filter input[type="search"] {

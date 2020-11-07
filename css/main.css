@@ -4,6 +4,7 @@
 @import './header.css';
 @import './footer.css';
 @import './user-msg.css';
+@import './home-page.css';
 * {
     box-sizing: border-box;
 }
@@ -18,6 +19,7 @@ body {
 
 main {
     min-height: 70vh;
+    margin-bottom: 10px; /*If it's ruin something, delete it */
 }
 
 h1 {

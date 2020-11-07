@@ -30,15 +30,15 @@ export default {
     },
     computed: {
         mailsToShow() {
-            // if (this.starredOnly) return this.mails.filter((mail) => {
-            //     return mail.isStarred;
-            // })
             if (this.filterBy === null) return this.mails;
-            const bySubject = this.filterBy.bySubject.toLowerCase();
+            const byText = this.filterBy.byText.toLowerCase();
             return this.mails.filter((mail) => {
                 var isRead = this.filterBy.readUnRead === 'Read' ? true : false;
                 var isAll = this.filterBy.readUnRead === 'All';
-                return mail.subject.toLowerCase().includes(bySubject)
+                return (mail.from.toLowerCase().includes(byText) 
+                || mail.subject.toLowerCase().includes(byText) 
+                || mail.body.toLowerCase().includes(byText))
+                || mail.to.toLowerCase().includes(byText)
                 && (
                         ((isRead && mail.isRead) ||
                         (!isRead && !mail.isRead))

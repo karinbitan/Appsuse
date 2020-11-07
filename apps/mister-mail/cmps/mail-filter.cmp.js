@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="mail-filter">
         <form @submit.prevent="emitFilter">
-            <input type="search" name="search-text" v-model="filterBy.bySubject" />
+            <input type="search" name="search-text" v-model="filterBy.byText" />
             <select v-model="filterBy.readUnRead" name="read-unread">
                 <option>All</option>
                 <option>Read</option>
@@ -16,14 +16,12 @@ export default {
     `,
     data(){
         return {
-            filterBy:{bySubject: '', readUnRead: 'All'}
+            filterBy:{byText: '', readUnRead: 'All'}
         }
     },
     methods: {
         emitFilter(){
-            // this.$emit('filtered', this.filterBy);
-            eventBus.$emit('filtered', this.filterBy)
-            console.log(this.filterBy)
+            eventBus.$emit('filtered', JSON.parse(JSON.stringify(this.filterBy)))
         }
     }
 }

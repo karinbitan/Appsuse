@@ -39,7 +39,7 @@ function getNotes() {
                 id: utilService.makeId(),
                 type: 'note-img',
                 isPinned: false,
-                info: {title: 'BNA', txt: 'https://cdn.thenationroar.com/wp-content/uploads/2020/05/BNA-Episode-2-Release-Date-Preview-and-Spoilers-696x404-credit-pinterest.jpg'},
+                info: {title: 'BNA', txt: 'https://i1.wp.com/decider.com/wp-content/uploads/2020/06/BNA-NETFLIX-REVIEW.png?quality=80&strip=all&ssl=1'},
                 style: {}
             },
             
